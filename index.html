@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edifício Confiança — T0 e T1 junto à Universidade do Minho</title>
-<meta name="description" content="Edifício Confiança: apartamentos T0 e T1 novos, junto ao Campus de Gualtar da Universidade do Minho, Braga. Consulte fogos disponíveis, preços e ficha técnica.">
+<meta name="description" content="Edifício Confiança: apartamentos T0 e T1 novos, junto ao Campus de Gualtar da Universidade do Minho, Braga. Consulte as frações disponíveis, preços e ficha técnica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -337,7 +337,7 @@
       <a href="#renders">Renders</a>
       <a href="#plantas">Plantas</a>
       <a href="#ficha-tecnica">Ficha técnica</a>
-      <a href="#fogos">Frações disponíveis</a>
+      <a href="#fracoes">Frações disponíveis</a>
       <a href="#contacto">Contactos</a>
     </nav>
   </div>
@@ -352,7 +352,7 @@
       <h1>Edifício Confiança</h1>
       <p class="lede">Apartamentos T0, T1 e T1+1 a estrear, a 5–10 minutos a pé do Campus de Gualtar da Universidade do Minho. Fachada e parede originais preservadas, com garagens coletivas.</p>
       <div class="hero-ctas">
-        <a href="#fogos" class="btn btn-primary">Ver frações disponíveis</a>
+        <a href="#fracoes" class="btn btn-primary">Ver frações disponíveis</a>
       </div>
       <div class="stat-strip">
         <div><div class="num">14</div><div class="lbl">frações T0 / T1 / T1+1</div></div>
@@ -496,8 +496,8 @@
     </div>
   </section>
 
-  <!-- TABELA DE FOGOS -->
-  <section id="fogos">
+  <!-- TABELA DE FRAÇÕES-->
+  <section id="fracoes">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -555,15 +555,15 @@
     <div class="wrap contact-wrap">
       <div>
         <div class="section-num">FALE CONNOSCO</div>
-        <h2>Interessado num fogo do Edifício Confiança?</h2>
-        <p>Envie-nos os seus dados ou contacte diretamente a agência para agendar uma visita, reservar um imovel ou pedir mais informação sobre o processo de construção.</p>
+        <h2>Quer saber mais sobre o Edifício Confiança?</h2>
+        <p>Garanta o seu novo T0 ou T1 a passos da Universidade do Minho. Deixe-nos os seus dados ou contacte-nos diretamente para agendar uma reunião, reservar a sua fração ou obter todos os detalhes sobre o projeto.</p>
       </div>
       <div class="card">
         <h3>Nuno Teixeira Imóveis</h3>
-        <p>Fale comigo para agendar uma visita ou reservar um imovel.</p>
+        <p>Fale comigo para agendar uma apresentação, reservar o seu imóvel ou esclarecer qualquer dúvida.</p>
         <ul class="contact-list">
-          <li><a href="tel:+351918624127">+351 918 624 127</a></li>
-          <li><a href="mailto:nunoteixeira1960@gmail.com">nunoteixeira1960@gmail.com</a></li>
+          <li><a href="tel:+351918624127">📞+351 918 624 127</a></li>
+          <li><a href="mailto:nunoteixeira1960@gmail.com">✉️ nunoteixeira1960@gmail.com</a></li>
           <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp 💬</a></li>          
         </ul>
       </div>
@@ -640,17 +640,17 @@ const PLANTAS = [
 // garagem incluída em todos os fogos
 const UNITS = [
   {id:'Esq. Trás',    piso:0, tipologia:'T1',   area:67,    terraco:null, preco:320000, estado:'disponivel'},
-  {id:'Dt.º Trás',    piso:0, tipologia:'T0',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Dir Trás',    piso:0, tipologia:'T0',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
   {id:'Esq. Frente',  piso:0, tipologia:'T0',   area:35,    terraco:null, preco:185000, estado:'reservado'},
-  {id:'Dt.º Frente',  piso:0, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Dir Frente',  piso:0, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
   {id:'Esq. Trás',    piso:1, tipologia:'T1',   area:67,    terraco:null, preco:295000, estado:'disponivel'},
-  {id:'Dt.º Trás',    piso:1, tipologia:'T1',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Dir Trás',    piso:1, tipologia:'T1',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
   {id:'Esq. Frente',  piso:1, tipologia:'T0',   area:43,    terraco:null, preco:230000, estado:'disponivel'},
-  {id:'Dt.º Frente',  piso:1, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Dir Frente',  piso:1, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
   {id:'Esq. Trás',    piso:2, tipologia:'T1',   area:64.5,  terraco:null, preco:null,   estado:'vendido'},
-  {id:'Dt.º Trás',    piso:2, tipologia:'T1',   area:53,    terraco:null, preco:null,   estado:'vendido'},
+  {id:'Dir Trás',    piso:2, tipologia:'T1',   area:53,    terraco:null, preco:null,   estado:'vendido'},
   {id:'Esq. Frente',  piso:2, tipologia:'T0',   area:38,    terraco:null, preco:null,   estado:'vendido'},
-  {id:'Dt.º Frente',  piso:2, tipologia:'T0',   area:37,    terraco:null, preco:null,   estado:'vendido'},
+  {id:'Dir Frente',  piso:2, tipologia:'T0',   area:37,    terraco:null, preco:null,   estado:'vendido'},
   {id:'Esquerdo',     piso:3, tipologia:'T1+1', area:70,    terraco:30,   preco:null,   estado:'vendido'},
   {id:'Direito',      piso:3, tipologia:'T1+1', area:52,    terraco:30,   preco:395000, estado:'disponivel'},
 ];
@@ -759,7 +759,7 @@ burger.addEventListener('click', () => {
 });
 navLinks.addEventListener('click', (e) => { if(e.target.tagName === 'A') navLinks.classList.remove('open'); });
 
-// --- Tabela de fogos --------------------------------------------------------
+// --- Tabela de fracões --------------------------------------------------------
 const fSearch = document.getElementById('fSearch');
 const fPiso = document.getElementById('fPiso');
 const fTipo = document.getElementById('fTipo');
