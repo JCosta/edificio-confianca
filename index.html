@@ -95,6 +95,7 @@
     display:inline-block;background:var(--forest-dark);color:var(--white);
     text-decoration:none;font-size:0.88rem;padding:9px 18px;border-radius:var(--radius);
   }
+  nav.links a.nav-cta{color:var(--white);}
   .nav-cta:hover{background:var(--forest);}
   .burger{display:none;background:none;border:1px solid var(--line);padding:8px 10px;cursor:pointer;}
   .burger span{display:block;width:18px;height:1.6px;background:var(--ink);margin:4px 0;}
@@ -267,6 +268,24 @@
     margin-top:26px;
   }
   .pip-note{font-size:0.82rem;color:var(--granite);max-width:50ch;}
+  @media (max-width:600px){
+    .pip-row{grid-template-columns:1fr;}
+    .pip-row div:first-child{border-right:none;border-bottom:1px solid var(--line);padding-bottom:8px;}
+  }
+
+  .pip-details{border-top:1px solid var(--line);}
+  .pip-details summary{
+    cursor:pointer;list-style:none;padding:18px 0;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;color:var(--forest-dark);
+  }
+  .pip-details summary::-webkit-details-marker{display:none;}
+  .pip-details summary::after{
+    content:'Ver mais +';font-family:'Work Sans',sans-serif;font-size:0.78rem;font-weight:500;
+    color:var(--gold);white-space:nowrap;letter-spacing:0.02em;
+  }
+  .pip-details[open] summary::after{content:'Fechar –';}
+  .pip-details[open] summary{border-bottom:1px solid var(--line);padding-bottom:18px;}
 
   /* ---------- Tabela de fogos ---------- */
   .table-controls{
@@ -298,6 +317,25 @@
   table.units thead th.sort-desc::after{content:"↓";opacity:1;}
   table.units tbody tr:hover{background:var(--stone);}
   table.units tbody tr:last-child td{border-bottom:none;}
+  @media (max-width:700px){
+    .table-scroll{overflow-x:visible;border:none;}
+    table.units{min-width:0;border:none;}
+    table.units thead{position:absolute;left:-9999px;top:-9999px;}
+    table.units tbody, table.units tr, table.units td{display:block;width:100%;}
+    table.units tr{
+      border:1px solid var(--line);background:var(--white);margin-bottom:14px;padding:4px 16px;
+    }
+    table.units tr.empty-row{border:none;padding:0;}
+    table.units td{
+      display:flex;justify-content:space-between;align-items:center;gap:14px;
+      padding:11px 0;border-bottom:1px solid var(--stone-dim);text-align:right;
+    }
+    table.units td:last-child{border-bottom:none;}
+    table.units td::before{
+      content:attr(data-label);color:var(--granite);font-size:0.78rem;
+      text-transform:uppercase;letter-spacing:0.02em;text-align:left;
+    }
+  }
   .status-pill{
     display:inline-flex;align-items:center;gap:6px;padding:4px 10px;font-size:0.8rem;border-radius:12px;
   }
@@ -413,6 +451,8 @@
         <li><span class="poi-name">Centro Comercial Braga Parque</span><span class="poi-leader"></span><span class="poi-dist">≈ 530 m</span></li>
         <li><span class="poi-name">Hospital de Braga</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,2 km</span></li>
         <li><span class="poi-name">Meliá Braga Hotel &amp; Spa</span><span class="poi-leader"></span><span class="poi-dist">≈ 400 m</span></li>
+																																			 
+																																		
         <li><span class="poi-name">Bom Jesus do Monte</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,9 km</span></li>
       </ul>
     </div>
@@ -426,7 +466,7 @@
           <div class="section-num">MOCKUPS &amp; RENDERS</div>
           <h2>Fachadas, interiores e áreas comuns</h2>
         </div>
-        <p class="desc">Imagens de arquitetura ilustrativas do projeto. </p>
+           <p class="desc">Imagens de arquitetura ilustrativas do projeto. </p>
       </div>
 
       <div class="gal-tabs" id="galTabs">
@@ -448,7 +488,7 @@
           <div class="section-num">PROJETO DE ARQUITETURA</div>
           <h2>Plantas dos pisos</h2>
         </div>
-        <p class="desc">Plantas técnicas de cada piso.
+        <p class="desc">Plantas técnicas de cada piso.</p>
       </div>
       <div class="gal-grid" id="plantasGrid"></div>
     </div>
@@ -465,34 +505,49 @@
         <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto.</p>
       </div>
 
-      <div class="pip-grid">
-        <div class="pip-row"><div>Tipo de processo</div><div>Informação Prévia Simples (PIP)</div></div>
-        <div class="pip-row"><div>Entidade licenciadora</div><div>Câmara Municipal de Braga</div></div>
-        <div class="pip-row"><div>Morada</div><div>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</div></div>
-        <div class="pip-row"><div>Uso previsto</div><div>Habitação multifamiliar — Piso 0: 1 T0 + 3 T1 · Piso 1: 1 T0 + 3 T1 · Piso 2 recuado: 2 T0 + 2 T1 · Piso 3 traseiras: 2 T1</div></div>
-        <div class="pip-row"><div>Nº de fogos</div><div>14 (4 T0 + 10 T1)</div></div>
-        <div class="pip-row"><div>Pisos acima da cota de soleira</div><div>4 — piso 0, 1º, 2º recuado e 3º traseiras</div></div>
-        <div class="pip-row"><div>Pisos abaixo da cota de soleira</div><div>1 — garagens coletivas</div></div>
-        <div class="pip-row"><div>Lugares de estacionamento</div><div>14 vagas (garagens coletivas, piso -1, e piso 0)</div></div>
-        <div class="pip-row"><div>Área bruta de construção</div><div>1 161,00 m² (total indicado no PIP)</div></div>
-        <div class="pip-row"><div>Elementos preservados</div><div>Fachada e parede do edifício existente</div></div>
-        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>2027</div></div>
-      </div>
+      <details class="pip-details">
+        <summary>Ver ficha técnica completa</summary>
+																										
+																																   
+																																																	  
+																					  
+																																	 
+																												
+																																  
+															
+																													 
+																						 
+			
 
-      <div class="table-scroll" style="margin-top:26px;">
-        <table class="units">
-          <thead><tr><th>Piso</th><th>Composição</th><th>Área de construção</th></tr></thead>
-          <tbody>
-            <tr><td>Piso -1 (garagens coletivas)</td><td>12 lugares</td><td>242,20 m²</td></tr>
-            <tr><td>Piso 0</td><td>1T0 + 3T1</td><td>238,00 m²</td></tr>
-            <tr><td>Piso 1</td><td>1T0 + 3T1</td><td>238,00 m²</td></tr>
-            <tr><td>Piso 2 recuado</td><td>2T0 + 2T1</td><td>233,50 m²</td></tr>
-            <tr><td>Piso 3 traseiras</td><td>2T1</td><td>146,65 m²</td></tr>
-            <tr><td><strong>Total</strong></td><td>14 frações (4 T0 + 10 T1)</td><td><strong>1 161,00 m²</strong></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size:0.8rem;color:var(--granite);margin-top:12px;">Nota: a soma das áreas por piso listadas na PIP totaliza 1 098,35 m²; o valor de 1 161,00 m² é o indicado como total no documento — a confirmar com o projetista antes de publicar.</p>
+        <div class="pip-grid">
+          <div class="pip-row"><div>Tipo de processo</div><div>Informação Prévia Simples (PIP)</div></div>
+          <div class="pip-row"><div>Entidade licenciadora</div><div>Câmara Municipal de Braga</div></div>
+          <div class="pip-row"><div>Morada</div><div>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</div></div>
+          <div class="pip-row"><div>Uso previsto</div><div>Habitação multifamiliar — Piso 0: 1T0+3T1 · Piso 1: 1T0+3T1 · Piso 2 recuado: 2T0+2T1 · Piso 3 traseiras: 2T1</div></div>
+          <div class="pip-row"><div>Nº de fogos</div><div>14 (4 T0 + 10 T1)</div></div>
+          <div class="pip-row"><div>Pisos acima da cota de soleira</div><div>4 — piso 0, 1º, 2º recuado e 3º traseiras</div></div>
+          <div class="pip-row"><div>Pisos abaixo da cota de soleira</div><div>1 — garagens coletivas</div></div>
+          <div class="pip-row"><div>Lugares de estacionamento</div><div>12 (garagens coletivas, piso -1)</div></div>
+          <div class="pip-row"><div>Área bruta de construção</div><div>1 161,00 m² (total indicado no PIP)</div></div>
+          <div class="pip-row"><div>Elementos preservados</div><div>Fachada e parede do edifício existente</div></div>
+          <div class="pip-row"><div>Prazo previsto de conclusão</div><div>— a preencher —</div></div>
+        </div>
+
+        <div class="table-scroll" style="margin-top:26px;">
+          <table class="units">
+            <thead><tr><th>Piso</th><th>Composição</th><th>Área de construção</th></tr></thead>
+            <tbody>
+              <tr><td data-label="Piso">Piso -1 (garagens coletivas)</td><td data-label="Composição">12 lugares</td><td data-label="Área">242,20 m²</td></tr>
+              <tr><td data-label="Piso">Piso 0</td><td data-label="Composição">1T0 + 3T1</td><td data-label="Área">238,00 m²</td></tr>
+              <tr><td data-label="Piso">Piso 1</td><td data-label="Composição">1T0 + 3T1</td><td data-label="Área">238,00 m²</td></tr>
+              <tr><td data-label="Piso">Piso 2 recuado</td><td data-label="Composição">2T0 + 2T1</td><td data-label="Área">233,50 m²</td></tr>
+              <tr><td data-label="Piso">Piso 3 traseiras</td><td data-label="Composição">2T1</td><td data-label="Área">146,65 m²</td></tr>
+              <tr><td data-label="Piso"><strong>Total</strong></td><td data-label="Composição">14 fogos (4 T0 + 10 T1)</td><td data-label="Área"><strong>1 161,00 m²</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.8rem;color:var(--granite);margin-top:12px;">Nota: a soma das áreas por piso listadas na PIP totaliza 1 098,35 m²; o valor de 1 161,00 m² é o indicado como total no documento — a confirmar com o projetista antes de publicar.</p>
+      </details>
     </div>
   </section>
 
@@ -561,11 +616,11 @@
       </div>
       <div class="card">
         <h3>Nuno Teixeira Imóveis</h3>
-        <p>Fale comigo para agendar uma apresentação, reservar o seu imóvel ou esclarecer qualquer dúvida.</p>
+        <p>Fale connosco para agendar uma visita ou reservar um fogo.</p>
         <ul class="contact-list">
           <li><a href="tel:+351918624127">📞+351 918 624 127</a></li>
           <li><a href="mailto:nunoteixeira1960@gmail.com">✉️ nunoteixeira1960@gmail.com</a></li>
-          <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp 💬</a></li>          
+          <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp 💬</a></li>         
         </ul>
       </div>
     </div>
@@ -576,6 +631,7 @@
 <footer class="site">
   <div class="wrap foot-inner">
     <small>© <span id="year"></span> Nuno Teixeira Imóveis· Todos os direitos reservados — informação sem valor contratual, sujeita a alteração.</small>
+															
   </div>
 </footer>
 
@@ -816,14 +872,14 @@ function renderTable(){
     const precoTxt = u.preco ? currency.format(u.preco) : '—';
     const terracoTxt = u.terraco ? u.terraco : '—';
     tr.innerHTML = `
-      <td>${pisoTxt}</td>
-      <td>${u.id}</td>
-      <td>${u.tipologia}</td>
-      <td>Sim</td>
-      <td>${u.area}</td>
-      <td>${terracoTxt}</td>
-      <td>${precoTxt}</td>
-      <td><span class="status-pill ${u.estado}"><i class="dot ${u.estado}"></i>${statusLabel[u.estado]}</span></td>
+      <td data-label="Piso">${pisoTxt}</td>
+      <td data-label="Fração">${u.id}</td>
+      <td data-label="Tipologia">${u.tipologia}</td>
+      <td data-label="Garagem">Sim</td>
+      <td data-label="Área (m²)">${u.area}</td>
+      <td data-label="Área Terraço (m²)">${terracoTxt}</td>
+      <td data-label="Preço">${precoTxt}</td>
+      <td data-label="Estado"><span class="status-pill ${u.estado}"><i class="dot ${u.estado}"></i>${statusLabel[u.estado]}</span></td>
     `;
     unitsBody.appendChild(tr);
   });
