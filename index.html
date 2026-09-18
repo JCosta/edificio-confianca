@@ -191,6 +191,23 @@
   .locate-map iframe{width:100%;height:260px;border:0;filter:grayscale(15%);}
   @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
 
+  /* ---------- Pontos de interesse ---------- */
+  .poi-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
+  .poi-list li{
+    display:flex;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);
+  }
+  .poi-name{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;color:var(--forest-dark);
+    white-space:nowrap;
+  }
+  .poi-leader{flex:1;border-bottom:1px dotted var(--granite);margin-bottom:6px;min-width:24px;}
+  .poi-dist{font-size:0.95rem;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  @media (max-width:600px){
+    .poi-list li{flex-wrap:wrap;row-gap:4px;}
+    .poi-name{white-space:normal;flex:1 1 100%;}
+    .poi-leader{display:none;}
+  }
+
   /* ---------- Gallery ---------- */
   .gal-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
   .gal-tab{
@@ -316,7 +333,9 @@
     <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="links" id="navLinks">
       <a href="#sobre">Sobre</a>
+      <a href="#pontos-interesse">Proximidades</a>
       <a href="#renders">Renders</a>
+      <a href="#plantas">Plantas</a>
       <a href="#ficha-tecnica">Ficha técnica</a>
       <a href="#fogos">Fogos disponíveis</a>
       <a href="#contacto" class="nav-cta">Contactar</a>
@@ -329,18 +348,18 @@
   <!-- HERO -->
   <section class="hero" style="padding:0;border-top:none;">
     <div class="hero-text">
-      <div class="hero-eyebrow"><span class="rule"></span> NOVA CONSTRUÇÃO · BRAGA</div>
+      <div class="hero-eyebrow"><span class="rule"></span> REABILITAÇÃO · RUA NOVA DE SANTA CRUZ, BRAGA</div>
       <h1>Edifício Confiança</h1>
-      <p class="lede">Apartamentos T0 e T1 a estrear, a poucos minutos a pé do Campus de Gualtar da Universidade do Minho. Pensado para estudantes, docentes e investimento em arrendamento.</p>
+      <p class="lede">Apartamentos T0, T1 e T1+1 a estrear, a 5–10 minutos a pé do Campus de Gualtar da Universidade do Minho. Fachada e parede originais preservadas, com garagens coletivas.</p>
       <div class="hero-ctas">
         <a href="#fogos" class="btn btn-primary">Ver fogos disponíveis</a>
         <a href="#ficha-tecnica" class="btn btn-ghost">Ficha técnica (PIP)</a>
       </div>
       <div class="stat-strip">
-        <div><div class="num">20</div><div class="lbl">fogos T0 / T1</div></div>
-        <div><div class="num">5</div><div class="lbl">pisos</div></div>
-        <div><div class="num">450m</div><div class="lbl">até ao campus</div></div>
-        <div><div class="num">2027</div><div class="lbl">conclusão prevista</div></div>
+        <div><div class="num">14</div><div class="lbl">fogos T0 / T1 / T1+1</div></div>
+        <div><div class="num">4</div><div class="lbl">pisos, incl. recuado</div></div>
+        <div><div class="num">12</div><div class="lbl">lugares de garagem</div></div>
+        <div><div class="num">1161m²</div><div class="lbl">área bruta de construção</div></div>
       </div>
     </div>
     <div class="hero-media">
@@ -356,24 +375,44 @@
       <div>
         <div class="section-num">SOBRE O PROJETO</div>
         <h2>Viver a pé de distância da universidade</h2>
-        <p>O Edifício Confiança nasce num dos eixos mais procurados por estudantes e docentes da Universidade do Minho, com ligação direta ao Campus de Gualtar e boa cobertura de transportes para o centro de Braga. As tipologias T0 e T1 foram desenhadas para uso próprio ou para arrendamento, com acabamentos novos e áreas eficientes.</p>
-        <p>Este texto e os dados abaixo são um ponto de partida — substitua pela descrição real do projeto, memória descritiva e morada definitiva fornecidas pela promotora.</p>
+        <p>O Edifício Confiança nasce na Rua Nova de Santa Cruz, em Braga (S. Vitor) — a rua que liga o centro histórico ao Campus de Gualtar da Universidade do Minho, a cerca de 5 a 10 minutos a pé. O projeto preserva a fachada e a parede do edifício existente e organiza-se em habitação multifamiliar do piso 0 ao piso recuado, com garagens coletivas ao nível do piso -1.</p>
+        <p>Dados de acordo com a Informação Prévia Simples (PIP) submetida; morada e composição por piso estão confirmadas, faltando ainda confirmar o número de processo, datas e prazo de conclusão com a promotora.</p>
         <ul class="facts">
-          <li><span>Localização</span><span>Braga, junto ao Campus de Gualtar</span></li>
-          <li><span>Tipologias</span><span>T0 e T1</span></li>
-          <li><span>Nº de fogos</span><span>20</span></li>
-          <li><span>Pisos</span><span>Rés-do-chão + 4 pisos</span></li>
-          <li><span>Estacionamento</span><span>Lugar coberto por fogo (opcional)</span></li>
-          <li><span>Conclusão prevista</span><span>2º trimestre de 2027</span></li>
+          <li><span>Localização</span><span>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</span></li>
+          <li><span>Tipologias</span><span>T0, T1 e T1+1 (4 T0 + 10 T1)</span></li>
+          <li><span>Nº de fogos</span><span>14</span></li>
+          <li><span>Pisos</span><span>Piso -1 (garagens) · 0 · 1 · 2 recuado · 3 traseiras</span></li>
+          <li><span>Estacionamento</span><span>Garagens coletivas — 12 lugares</span></li>
+          <li><span>Conclusão prevista</span><span>— a confirmar —</span></li>
         </ul>
       </div>
       <div class="locate-map">
         <h3>Localização</h3>
-        <p class="addr">Rua Exemplo, nº 000, 4710-000 Braga<br>— substituir pela morada definitiva —</p>
+        <p class="addr">Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77<br>Braga (S. Vitor) — Braga</p>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Universidade+do+Minho,+Campus+de+Gualtar,+Braga&output=embed"
-          title="Mapa de localização junto à Universidade do Minho"></iframe>
+          src="https://www.google.com/maps?q=Rua+Nova+de+Santa+Cruz,+67,+Braga&output=embed"
+          title="Mapa de localização — Rua Nova de Santa Cruz, Braga"></iframe>
       </div>
+    </div>
+  </section>
+
+  <!-- PONTOS DE INTERESSE -->
+  <section id="pontos-interesse">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">LOCALIZAÇÃO</div>
+          <h2>A dois passos de tudo o que importa</h2>
+        </div>
+        <p class="desc">Distâncias em linha reta a partir da morada do empreendimento. O percurso real a pé ou de carro pode ser um pouco mais longo, consoante o trajeto.</p>
+      </div>
+      <ul class="poi-list">
+        <li><span class="poi-name">Universidade do Minho — Campus de Gualtar</span><span class="poi-leader"></span><span class="poi-dist">≈ 340 m</span></li>
+        <li><span class="poi-name">Meliá Braga Hotel &amp; Spa</span><span class="poi-leader"></span><span class="poi-dist">≈ 400 m</span></li>
+        <li><span class="poi-name">Braga Parque (shopping)</span><span class="poi-leader"></span><span class="poi-dist">≈ 530 m</span></li>
+        <li><span class="poi-name">Hospital de Braga</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,2 km</span></li>
+        <li><span class="poi-name">Bom Jesus do Monte</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,9 km</span></li>
+      </ul>
     </div>
   </section>
 
@@ -399,6 +438,20 @@
     </div>
   </section>
 
+  <!-- PLANTAS DOS PISOS -->
+  <section id="plantas">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">PROJETO DE ARQUITETURA</div>
+          <h2>Plantas dos pisos</h2>
+        </div>
+        <p class="desc">Plantas técnicas de cada piso. Coloque os ficheiros em <code>images/plantas/</code> com os nomes indicados em cada imagem.</p>
+      </div>
+      <div class="gal-grid" id="plantasGrid"></div>
+    </div>
+  </section>
+
   <!-- FICHA TÉCNICA / PIP -->
   <section id="ficha-tecnica">
     <div class="wrap">
@@ -407,28 +460,37 @@
           <div class="section-num">PROCESSO CAMARÁRIO</div>
           <h2>Ficha técnica e PIP de construção</h2>
         </div>
-        <p class="desc">Dados do Pedido de Informação Prévia (PIP) submetido à Câmara Municipal. Valores de exemplo — substitua pelos dados reais do processo.</p>
+        <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto. Campos ainda não documentados estão assinalados como "a preencher".</p>
       </div>
 
       <div class="pip-grid">
-        <div class="pip-row"><div>Nº de processo PIP</div><div>PIP-2026/000 — a preencher</div></div>
+        <div class="pip-row"><div>Tipo de processo</div><div>Informação Prévia Simples (PIP)</div></div>
         <div class="pip-row"><div>Entidade licenciadora</div><div>Câmara Municipal de Braga</div></div>
-        <div class="pip-row"><div>Data de submissão</div><div>— a preencher —</div></div>
-        <div class="pip-row"><div>Data de aprovação</div><div>— a preencher —</div></div>
-        <div class="pip-row"><div>Uso previsto</div><div>Habitação — T0 e T1</div></div>
-        <div class="pip-row"><div>Área de implantação</div><div>— m² — a preencher</div></div>
-        <div class="pip-row"><div>Área bruta de construção</div><div>— m² — a preencher</div></div>
-        <div class="pip-row"><div>Nº de pisos acima da cota</div><div>5 (r/c + 4)</div></div>
-        <div class="pip-row"><div>Cércea máxima</div><div>— m — a preencher</div></div>
-        <div class="pip-row"><div>Nº de fogos</div><div>20 (T0 e T1)</div></div>
-        <div class="pip-row"><div>Lugares de estacionamento</div><div>— a preencher —</div></div>
-        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>2º trimestre de 2027</div></div>
+        <div class="pip-row"><div>Morada</div><div>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</div></div>
+        <div class="pip-row"><div>Uso previsto</div><div>Habitação multifamiliar — Piso 0: 1T0+3T1 · Piso 1: 1T0+3T1 · Piso 2 recuado: 2T0+2T1 · Piso 3 traseiras: 2T1</div></div>
+        <div class="pip-row"><div>Nº de fogos</div><div>14 (4 T0 + 10 T1)</div></div>
+        <div class="pip-row"><div>Pisos acima da cota de soleira</div><div>4 — piso 0, 1º, 2º recuado e 3º traseiras</div></div>
+        <div class="pip-row"><div>Pisos abaixo da cota de soleira</div><div>1 — garagens coletivas</div></div>
+        <div class="pip-row"><div>Lugares de estacionamento</div><div>12 (garagens coletivas, piso -1)</div></div>
+        <div class="pip-row"><div>Área bruta de construção</div><div>1 161,00 m² (total indicado no PIP)</div></div>
+        <div class="pip-row"><div>Elementos preservados</div><div>Fachada e parede do edifício existente</div></div>
+        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>— a preencher —</div></div>
       </div>
 
-      <div class="pip-foot">
-        <p class="pip-note">Para publicar o documento oficial, coloque o PDF em <code>documentos/ficha-tecnica-pip.pdf</code> — o botão abaixo já aponta para esse caminho.</p>
-        <a class="btn btn-primary" href="documentos/ficha-tecnica-pip.pdf" download>Descarregar ficha técnica (PDF)</a>
+      <div class="table-scroll" style="margin-top:26px;">
+        <table class="units">
+          <thead><tr><th>Piso</th><th>Composição</th><th>Área de construção</th></tr></thead>
+          <tbody>
+            <tr><td>Piso -1 (garagens coletivas)</td><td>12 lugares</td><td>242,20 m²</td></tr>
+            <tr><td>Piso 0</td><td>1T0 + 3T1</td><td>238,00 m²</td></tr>
+            <tr><td>Piso 1</td><td>1T0 + 3T1</td><td>238,00 m²</td></tr>
+            <tr><td>Piso 2 recuado</td><td>2T0 + 2T1</td><td>233,50 m²</td></tr>
+            <tr><td>Piso 3 traseiras</td><td>2T1</td><td>146,65 m²</td></tr>
+            <tr><td><strong>Total</strong></td><td>14 fogos (4 T0 + 10 T1)</td><td><strong>1 161,00 m²</strong></td></tr>
+          </tbody>
+        </table>
       </div>
+      <p style="font-size:0.8rem;color:var(--granite);margin-top:12px;">Nota: a soma das áreas por piso listadas na PIP totaliza 1 098,35 m²; o valor de 1 161,00 m² é o indicado como total no documento — a confirmar com o projetista antes de publicar.</p>
     </div>
   </section>
 
@@ -440,16 +502,17 @@
           <div class="section-num">DISPONIBILIDADE</div>
           <h2>Fogos por piso, área, preço e estado</h2>
         </div>
-        <p class="desc">Tabela atualizável — edite o array <code>UNITS</code> no código para refletir a disponibilidade real. Clique nos cabeçalhos para ordenar.</p>
+        <p class="desc">Todos os fogos incluem lugar de garagem. Tabela atualizável — edite o array <code>UNITS</code> no código para refletir a disponibilidade real. Clique nos cabeçalhos para ordenar.</p>
       </div>
 
       <div class="table-controls">
-        <input type="search" id="fSearch" placeholder="Procurar fogo (ex: 1.2)">
+        <input type="search" id="fSearch" placeholder="Procurar (ex: Esq. Trás)">
         <select id="fPiso"><option value="">Todos os pisos</option></select>
         <select id="fTipo">
           <option value="">Todas as tipologias</option>
           <option value="T0">T0</option>
           <option value="T1">T1</option>
+          <option value="T1+1">T1+1</option>
         </select>
         <select id="fEstado">
           <option value="">Todos os estados</option>
@@ -468,11 +531,12 @@
         <table class="units">
           <thead>
             <tr>
-              <th class="sortable" data-key="id">Fogo</th>
               <th class="sortable" data-key="piso">Piso</th>
+              <th class="sortable" data-key="id">Fração</th>
               <th class="sortable" data-key="tipologia">Tipologia</th>
+              <th>Garagem</th>
               <th class="sortable" data-key="area">Área (m²)</th>
-              <th>Exposição</th>
+              <th class="sortable" data-key="terraco">Área Terraço (m²)</th>
               <th class="sortable" data-key="preco">Preço</th>
               <th class="sortable" data-key="estado">Estado</th>
             </tr>
@@ -480,6 +544,7 @@
           <tbody id="unitsBody"></tbody>
         </table>
       </div>
+      <p style="font-size:0.8rem;color:var(--granite);margin-top:14px;">Todos os fogos incluem lugar de garagem. Área de terraço a confirmar nas plantas finais.</p>
     </div>
   </section>
 
@@ -489,15 +554,15 @@
       <div>
         <div class="section-num">FALE CONNOSCO</div>
         <h2>Interessado num fogo do Edifício Confiança?</h2>
-        <p>Envie-nos os seus dados ou contacte diretamente a agência para agendar uma visita, reservar um fogo ou pedir mais informação sobre o processo de construção.</p>
+        <p>Envie-nos os seus dados ou contacte diretamente a agência para agendar uma visita, reservar um imovel ou pedir mais informação sobre o processo de construção.</p>
       </div>
       <div class="card">
-        <h3>Agência Imobiliária — Exemplo</h3>
-        <p>Substitua estes dados pelos contactos reais da agência.</p>
+        <h3>Nuno Teixeira Imóveis</h3>
+        <p>Fale comigo para agendar uma visita ou reservar um imovel.</p>
         <ul class="contact-list">
-          <li><a href="tel:+351000000000">+351 000 000 000</a></li>
-          <li><a href="mailto:geral@agencia-exemplo.pt">geral@agencia-exemplo.pt</a></li>
-          <li><a href="https://wa.me/351000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+351918624127">+351 918 624 127</a></li>
+          <li><a href="mailto:nunoteixeira1960@gmail.com">nunoteixeira1960@gmail.com</a></li>
+          <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp</a></li>
         </ul>
       </div>
     </div>
@@ -508,7 +573,7 @@
 <footer class="site">
   <div class="wrap foot-inner">
     <small>© <span id="year"></span> Edifício Confiança — informação sem valor contratual, sujeita a alteração.</small>
-    <small>Página gerida pela agência imobiliária</small>
+    <small>Página gerida por Nuno Teixeira Imóveis</small>
   </div>
 </footer>
 
@@ -528,40 +593,65 @@
 // category: 'fachada' | 'interior' | 'comum'
 // file: nome do ficheiro dentro da pasta images/
 const GALLERY = [
-  { file: 'fachada-principal.jpg', category: 'fachada', label: 'Fachada principal' },
-  { file: 'fachada-lateral.jpg',   category: 'fachada', label: 'Fachada lateral' },
-  { file: 'fachada-noite.jpg',     category: 'fachada', label: 'Fachada ao anoitecer' },
-  { file: 'interior-t0-sala.jpg',  category: 'interior', label: 'T0 — sala e kitchenette' },
-  { file: 'interior-t1-quarto.jpg',category: 'interior', label: 'T1 — quarto' },
-  { file: 'interior-wc.jpg',       category: 'interior', label: 'Casa de banho' },
-  { file: 'atrio-entrada.jpg',     category: 'comum', label: 'Átrio de entrada' },
-  { file: 'terraco-comum.jpg',     category: 'comum', label: 'Terraço comum' },
-  { file: 'estacionamento.jpg',    category: 'comum', label: 'Estacionamento coberto' },
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' },
+  { file: 'fachada-lateral.jpeg',   category: 'fachada', label: 'Fachada lateral' },
+  { file: 'fachada-principal-2.jpeg', category: 'fachada', label: 'Fachada principal R/C' },  
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' }, 
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' },  
+  { file: 'fachada-traseiras.jpeg', category: 'fachada', label: 'Fachada Traseiras' },  
+  { file: 'fachada-traseiras-2.jpeg', category: 'fachada', label: 'Fachada Traseiras Portão' },   
+  { file: 'fachada-traseiras-3.jpeg', category: 'fachada', label: 'Fachada Traseiras Lateral' },    
+  { file: 'cozinha.jpeg',       category: 'interior', label: 'Cozinha' },  
+  { file: 'cozinha-entrada.jpeg',       category: 'interior', label: 'Cozinha e Entrada Principal' },
+  { file: 'cozinha-entrada-2.jpeg',       category: 'interior', label: 'Cozinha e Entrada Principal 2' },
+  { file: 'cozinha-sala.jpeg',       category: 'interior', label: 'Cozinha e Sala' },
+  { file: 'cozinha-sala-3.jpeg',       category: 'interior', label: 'Cozinha e Sala' },
+  { file: 'hall-entrada.jpeg',       category: 'interior', label: 'Hall de Entrada' }, 
+  { file: 'interior-t0-sala.jpeg',  category: 'interior', label: 'T0 — sala e kitchenette' },
+  { file: 'interior-quarto-t1.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-quarto-t1-2.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-quarto-t1-3.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-t1-quarto.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-wc.jpeg',       category: 'interior', label: 'Casa de banho' },
+  { file: 'interior-wc-2.jpeg',       category: 'interior', label: 'Casa de banho' },  
+  { file: 'interior-wc-3.jpeg',       category: 'interior', label: 'Casa de banho' },
+  { file: 'atrio-entrada.jpeg',     category: 'comum', label: 'Átrio de entrada' },
+  { file: 'terraco-comum.jpeg',     category: 'comum', label: 'Terraço comum' },
+  { file: 'estacionamento.jpeg',    category: 'comum', label: 'Estacionamento coberto' },
+];
+
+// --- Plantas dos pisos ---------------------------------------------------
+// file: nome do ficheiro dentro da pasta images/plantas/
+const PLANTAS = [
+  { file: 'planta-piso--1.png',          label: 'Planta Piso -1' },
+  { file: 'planta-piso-0.png',           label: 'Planta Piso 0' },
+  { file: 'planta-piso-1.jpg',           label: 'Planta Piso 1' },
+  { file: 'planta-piso-2-recuado.jpg',   label: 'Planta Piso 2 Recuado' },
+  { file: 'planta-piso-3-traseiras.jpg', label: 'Planta Piso 3 Traseiras' },
+  { file: 'planta-cobertura.jpg',        label: 'Planta da Cobertura' },
 ];
 
 // --- Fogos: piso, tipologia, área, preço, estado ------------------------
+// piso: 0 = Rés-do-chão, 1 = 1º Andar, 2 = 2º Andar, 3 = Recuado
 // estado: 'disponivel' | 'reservado' | 'vendido'
+// preco: null quando o valor não está disponível (fogos já vendidos sem preço divulgado)
+// terraco: área de terraço em m², ou null quando não tem
+// garagem incluída em todos os fogos
 const UNITS = [
-  {id:'0.1', piso:0, tipologia:'T0', area:38, preco:129000, estado:'disponivel', exp:'Nascente'},
-  {id:'0.2', piso:0, tipologia:'T1', area:58, preco:169000, estado:'reservado',  exp:'Poente'},
-  {id:'0.3', piso:0, tipologia:'T0', area:36, preco:125000, estado:'disponivel', exp:'Sul'},
-  {id:'0.4', piso:0, tipologia:'T1', area:60, preco:174000, estado:'vendido',    exp:'Norte'},
-  {id:'1.1', piso:1, tipologia:'T0', area:39, preco:131000, estado:'disponivel', exp:'Nascente'},
-  {id:'1.2', piso:1, tipologia:'T1', area:59, preco:172000, estado:'disponivel', exp:'Poente'},
-  {id:'1.3', piso:1, tipologia:'T0', area:37, preco:127000, estado:'reservado',  exp:'Sul'},
-  {id:'1.4', piso:1, tipologia:'T1', area:61, preco:178000, estado:'disponivel', exp:'Norte'},
-  {id:'2.1', piso:2, tipologia:'T0', area:39, preco:133000, estado:'disponivel', exp:'Nascente'},
-  {id:'2.2', piso:2, tipologia:'T1', area:59, preco:175000, estado:'vendido',    exp:'Poente'},
-  {id:'2.3', piso:2, tipologia:'T0', area:37, preco:129000, estado:'disponivel', exp:'Sul'},
-  {id:'2.4', piso:2, tipologia:'T1', area:61, preco:181000, estado:'disponivel', exp:'Norte'},
-  {id:'3.1', piso:3, tipologia:'T0', area:40, preco:136000, estado:'disponivel', exp:'Nascente'},
-  {id:'3.2', piso:3, tipologia:'T1', area:60, preco:179000, estado:'disponivel', exp:'Poente'},
-  {id:'3.3', piso:3, tipologia:'T0', area:38, preco:132000, estado:'reservado',  exp:'Sul'},
-  {id:'3.4', piso:3, tipologia:'T1', area:62, preco:184000, estado:'disponivel', exp:'Norte'},
-  {id:'4.1', piso:4, tipologia:'T0', area:41, preco:139000, estado:'disponivel', exp:'Nascente'},
-  {id:'4.2', piso:4, tipologia:'T1', area:63, preco:192000, estado:'disponivel', exp:'Poente'},
-  {id:'4.3', piso:4, tipologia:'T0', area:40, preco:137000, estado:'disponivel', exp:'Sul'},
-  {id:'4.4', piso:4, tipologia:'T1', area:65, preco:198000, estado:'reservado',  exp:'Norte'},
+  {id:'Esq. Trás',    piso:0, tipologia:'T1',   area:67,    terraco:null, preco:320000, estado:'disponivel'},
+  {id:'Dt.º Trás',    piso:0, tipologia:'T0',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Esq. Frente',  piso:0, tipologia:'T0',   area:35,    terraco:null, preco:185000, estado:'reservado'},
+  {id:'Dt.º Frente',  piso:0, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Esq. Trás',    piso:1, tipologia:'T1',   area:67,    terraco:null, preco:295000, estado:'disponivel'},
+  {id:'Dt.º Trás',    piso:1, tipologia:'T1',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Esq. Frente',  piso:1, tipologia:'T0',   area:43,    terraco:null, preco:230000, estado:'disponivel'},
+  {id:'Dt.º Frente',  piso:1, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
+  {id:'Esq. Trás',    piso:2, tipologia:'T1',   area:64.5,  terraco:null, preco:null,   estado:'vendido'},
+  {id:'Dt.º Trás',    piso:2, tipologia:'T1',   area:53,    terraco:null, preco:null,   estado:'vendido'},
+  {id:'Esq. Frente',  piso:2, tipologia:'T0',   area:38,    terraco:null, preco:null,   estado:'vendido'},
+  {id:'Dt.º Frente',  piso:2, tipologia:'T0',   area:37,    terraco:null, preco:null,   estado:'vendido'},
+  {id:'Esquerdo',     piso:3, tipologia:'T1+1', area:70,    terraco:30,   preco:null,   estado:'vendido'},
+  {id:'Direito',      piso:3, tipologia:'T1+1', area:52,    terraco:30,   preco:395000, estado:'disponivel'},
 ];
 
 /* =====================================================================
@@ -624,6 +714,24 @@ document.getElementById('galTabs').addEventListener('click', (e) => {
   renderGallery(btn.dataset.filter);
 });
 
+// --- Plantas dos pisos -----------------------------------------------------
+const plantasGrid = document.getElementById('plantasGrid');
+function renderPlantas(){
+  plantasGrid.innerHTML = '';
+  PLANTAS.forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'gal-item';
+    item.innerHTML = `<span class="tag">Planta</span>
+      <img src="images/plantas/${p.file}" alt="${p.label}" loading="lazy">`;
+    const img = item.querySelector('img');
+    const g = { file: `plantas/${p.file}`, label: p.label };
+    img.onerror = () => { img.replaceWith(phBlock(p.label, `plantas/${p.file}`, '1600×1200')); };
+    item.addEventListener('click', () => openLightbox(g));
+    plantasGrid.appendChild(item);
+  });
+}
+renderPlantas();
+
 // --- Lightbox --------------------------------------------------------------
 const lightbox = document.getElementById('lightbox');
 const lbContent = document.getElementById('lbContent');
@@ -657,18 +765,19 @@ const fTipo = document.getElementById('fTipo');
 const fEstado = document.getElementById('fEstado');
 const unitsBody = document.getElementById('unitsBody');
 
+const pisoLabel = { 0:'Rés-do-chão', 1:'1º Andar', 2:'2º Andar', 3:'Recuado' };
 const pisos = [...new Set(UNITS.map(u => u.piso))].sort((a,b) => a-b);
 pisos.forEach(p => {
   const opt = document.createElement('option');
   opt.value = p;
-  opt.textContent = p === 0 ? 'Rés-do-chão' : `Piso ${p}`;
+  opt.textContent = pisoLabel[p] || `Piso ${p}`;
   fPiso.appendChild(opt);
 });
 
 const statusLabel = { disponivel:'Disponível', reservado:'Reservado', vendido:'Vendido' };
 const currency = new Intl.NumberFormat('pt-PT', { style:'currency', currency:'EUR', maximumFractionDigits:0 });
 
-let sortKey = 'id';
+let sortKey = 'piso';
 let sortDir = 1;
 
 function currentRows(){
@@ -697,24 +806,29 @@ function renderTable(){
   const rows = currentRows();
   unitsBody.innerHTML = '';
   if(rows.length === 0){
-    unitsBody.innerHTML = `<tr class="empty-row"><td colspan="7">Nenhum fogo corresponde aos filtros escolhidos.</td></tr>`;
+    unitsBody.innerHTML = `<tr class="empty-row"><td colspan="8">Nenhum fogo corresponde aos filtros escolhidos.</td></tr>`;
     return;
   }
   rows.forEach(u => {
     const tr = document.createElement('tr');
+    const pisoTxt = u.piso === 0 ? 'R/C' : (pisoLabel[u.piso] || u.piso);
+    const precoTxt = u.preco ? currency.format(u.preco) : '—';
+    const terracoTxt = u.terraco ? u.terraco : '—';
     tr.innerHTML = `
+      <td>${pisoTxt}</td>
       <td>${u.id}</td>
-      <td>${u.piso === 0 ? 'R/C' : u.piso}</td>
       <td>${u.tipologia}</td>
+      <td>Sim</td>
       <td>${u.area}</td>
-      <td>${u.exp}</td>
-      <td>${currency.format(u.preco)}</td>
+      <td>${terracoTxt}</td>
+      <td>${precoTxt}</td>
       <td><span class="status-pill ${u.estado}"><i class="dot ${u.estado}"></i>${statusLabel[u.estado]}</span></td>
     `;
     unitsBody.appendChild(tr);
   });
 }
 renderTable();
+document.querySelector('table.units th[data-key="piso"]').classList.add('sort-asc');
 
 [fSearch, fPiso, fTipo, fEstado].forEach(el => el.addEventListener('input', renderTable));
 
