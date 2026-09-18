@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edifício Confiança — T0 e T1 junto à Universidade do Minho</title>
+<meta name="description" content="Edifício Confiança: apartamentos T0 e T1 novos, junto ao Campus de Gualtar da Universidade do Minho, Braga. Consulte fogos disponíveis, preços e ficha técnica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#F2F0E8;
+    --stone-dim:#E7E3D6;
+    --ink:#1E2420;
+    --ink-soft:#4A524B;
+    --forest:#2F4B3C;
+    --forest-dark:#20342A;
+    --granite:#7A776C;
+    --gold:#A9824C;
+    --gold-soft:#D9C7A3;
+    --white:#FFFFFF;
+    --line:#D6D1C2;
+    --ok:#3E7A4F;
+    --ok-bg:#E4EFE4;
+    --hold:#B4832B;
+    --hold-bg:#F4E8D2;
+    --sold:#8A8477;
+    --sold-bg:#E9E6DD;
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--stone);
+    color:var(--ink);
+    font-family:'Work Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500;
+    line-height:1.08;
+    margin:0;
+    color:var(--forest-dark);
+  }
+  p{margin:0 0 1em;max-width:62ch;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  button{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky;top:0;z-index:40;
+    background:rgba(242,240,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.15rem;
+    letter-spacing:0.01em;color:var(--forest-dark);text-decoration:none;
+    display:flex;align-items:center;gap:10px;
+  }
+  .brand .mark{
+    width:22px;height:22px;border:1.4px solid var(--forest-dark);
+    display:inline-block;position:relative;flex:none;
+  }
+  .brand .mark::after{
+    content:"";position:absolute;left:50%;top:0;bottom:0;width:1.4px;background:var(--forest-dark);
+    transform:translateX(-50%);
+  }
+  nav.links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  nav.links a{
+    text-decoration:none;font-size:0.92rem;color:var(--ink-soft);
+    padding:4px 0;border-bottom:1px solid transparent;
+  }
+  nav.links a:hover{color:var(--forest-dark);border-color:var(--gold);}
+  .nav-cta{
+    display:inline-block;background:var(--forest-dark);color:var(--white);
+    text-decoration:none;font-size:0.88rem;padding:9px 18px;border-radius:var(--radius);
+  }
+  .nav-cta:hover{background:var(--forest);}
+  .burger{display:none;background:none;border:1px solid var(--line);padding:8px 10px;cursor:pointer;}
+  .burger span{display:block;width:18px;height:1.6px;background:var(--ink);margin:4px 0;}
+
+  @media (max-width:860px){
+    nav.links{
+      position:absolute;top:100%;left:0;right:0;background:var(--stone);
+      flex-direction:column;gap:0;border-bottom:1px solid var(--line);
+      max-height:0;overflow:hidden;transition:max-height 0.25s ease;
+    }
+    nav.links.open{max-height:400px;}
+    nav.links a{padding:14px 28px;border-bottom:1px solid var(--line);width:100%;}
+    .nav-cta{display:none;}
+    .burger{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
+    min-height:640px;
+  }
+  .hero-text{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:64px 28px 64px 0;margin-left:28px;max-width:560px;
+  }
+  .hero-eyebrow{
+    font-size:0.85rem;color:var(--gold);margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-eyebrow .rule{width:34px;height:1px;background:var(--gold);}
+  .hero h1{font-size:clamp(2.4rem,4.6vw,3.6rem);letter-spacing:-0.01em;}
+  .hero .lede{
+    font-size:1.08rem;color:var(--ink-soft);margin-top:20px;max-width:44ch;
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    padding:13px 22px;border-radius:var(--radius);font-size:0.94rem;
+  }
+  .btn-primary{background:var(--forest-dark);color:var(--white);}
+  .btn-primary:hover{background:var(--forest);}
+  .btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--forest-dark);color:var(--forest-dark);}
+
+  .stat-strip{
+    display:flex;margin-top:48px;border-top:1px solid var(--line);padding-top:22px;gap:36px;flex-wrap:wrap;
+  }
+  .stat-strip div{min-width:80px;}
+  .stat-strip .num{font-family:'Fraunces',serif;font-size:1.5rem;color:var(--forest-dark);}
+  .stat-strip .lbl{font-size:0.78rem;color:var(--granite);margin-top:2px;}
+
+  .hero-media{
+    position:relative;background:var(--forest-dark);overflow:hidden;
+  }
+  .hero-media img{width:100%;height:100%;object-fit:cover;}
+  .hero-media .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:16px 22px;
+    background:linear-gradient(to top,rgba(20,26,22,0.75),transparent);
+    color:var(--stone);font-size:0.78rem;letter-spacing:0.02em;
+  }
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-text{margin-left:0;padding:48px 28px 40px;max-width:none;}
+    .hero-media{height:340px;order:-1;}
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:88px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:44px;flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+  .section-head .desc{color:var(--ink-soft);max-width:46ch;margin-top:10px;}
+  .section-num{font-size:0.8rem;color:var(--gold);letter-spacing:0.04em;margin-bottom:10px;}
+
+  /* ---------- Sobre ---------- */
+  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
+  .about-grid p{color:var(--ink-soft);}
+  .facts{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line);}
+  .facts li{
+    display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:0.94rem;gap:20px;
+  }
+  .facts li span:first-child{color:var(--granite);}
+  .facts li span:last-child{color:var(--ink);font-weight:500;text-align:right;}
+  .locate-map{
+    border:1px solid var(--line);padding:22px;background:var(--white);
+  }
+  .locate-map h3{font-size:1.05rem;margin-bottom:14px;}
+  .locate-map .addr{font-size:0.94rem;color:var(--ink-soft);margin-bottom:18px;}
+  .locate-map iframe{width:100%;height:260px;border:0;filter:grayscale(15%);}
+  @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+
+  /* ---------- Gallery ---------- */
+  .gal-tabs{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
+  .gal-tab{
+    border:1px solid var(--line);background:var(--white);padding:8px 16px;
+    font-size:0.85rem;cursor:pointer;color:var(--ink-soft);
+  }
+  .gal-tab.active{background:var(--forest-dark);color:var(--white);border-color:var(--forest-dark);}
+  .gal-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+  }
+  .gal-item{
+    position:relative;aspect-ratio:4/3;overflow:hidden;cursor:zoom-in;
+    border:1px solid var(--line);background:var(--stone-dim);
+  }
+  .gal-item img{width:100%;height:100%;object-fit:cover;}
+  .gal-item .ph{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;color:var(--granite);text-align:center;padding:14px;
+  }
+  .gal-item .ph svg{width:34px;height:34px;opacity:0.55;}
+  .gal-item .ph small{font-size:0.72rem;line-height:1.4;}
+  .gal-item .tag{
+    position:absolute;left:10px;top:10px;background:rgba(30,36,32,0.75);color:var(--stone);
+    font-size:0.7rem;padding:3px 8px;letter-spacing:0.02em;
+  }
+  @media (max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.gal-grid{grid-template-columns:1fr;}}
+
+  .lightbox{
+    position:fixed;inset:0;background:rgba(15,18,16,0.92);z-index:100;
+    display:none;align-items:center;justify-content:center;padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img,.lightbox .ph-big{max-width:min(900px,90vw);max-height:80vh;}
+  .lightbox .ph-big{
+    width:min(900px,90vw);height:min(500px,60vh);background:var(--forest-dark);
+    display:flex;align-items:center;justify-content:center;color:var(--stone-dim);
+  }
+  .lightbox-close{
+    position:absolute;top:24px;right:28px;background:none;border:1px solid var(--stone);
+    color:var(--stone);width:38px;height:38px;cursor:pointer;font-size:1.1rem;
+  }
+  .lightbox-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:var(--stone-dim);font-size:0.85rem;}
+
+  /* ---------- PIP / Ficha técnica ---------- */
+  .pip-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--white);}
+  .pip-row{
+    display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);
+  }
+  .pip-row:last-child{border-bottom:none;}
+  .pip-row div{padding:16px 22px;}
+  .pip-row div:first-child{color:var(--granite);font-size:0.86rem;border-right:1px solid var(--line);}
+  .pip-row div:last-child{font-weight:500;font-size:0.94rem;}
+  .pip-grid{grid-template-columns:1fr;}
+  .pip-foot{
+    display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    margin-top:26px;
+  }
+  .pip-note{font-size:0.82rem;color:var(--granite);max-width:50ch;}
+
+  /* ---------- Tabela de fogos ---------- */
+  .table-controls{
+    display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px;align-items:center;
+  }
+  .table-controls select, .table-controls input{
+    font-family:inherit;font-size:0.88rem;padding:9px 12px;border:1px solid var(--line);
+    background:var(--white);color:var(--ink);min-width:130px;
+  }
+  .table-controls input[type="search"]{min-width:200px;}
+  .legend{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap;font-size:0.82rem;color:var(--ink-soft);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.disponivel{background:var(--ok);}
+  .dot.reservado{background:var(--hold);}
+  .dot.vendido{background:var(--sold);}
+
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);}
+  table.units{width:100%;border-collapse:collapse;min-width:680px;background:var(--white);}
+  table.units th, table.units td{
+    text-align:left;padding:13px 16px;font-size:0.92rem;border-bottom:1px solid var(--line);
+  }
+  table.units thead th{
+    background:var(--forest-dark);color:var(--stone);font-weight:500;font-size:0.82rem;
+    letter-spacing:0.01em;cursor:pointer;user-select:none;white-space:nowrap;
+  }
+  table.units thead th.sortable::after{content:"↕";margin-left:6px;opacity:0.5;font-size:0.75em;}
+  table.units thead th.sort-asc::after{content:"↑";opacity:1;}
+  table.units thead th.sort-desc::after{content:"↓";opacity:1;}
+  table.units tbody tr:hover{background:var(--stone);}
+  table.units tbody tr:last-child td{border-bottom:none;}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:6px;padding:4px 10px;font-size:0.8rem;border-radius:12px;
+  }
+  .status-pill.disponivel{background:var(--ok-bg);color:var(--ok);}
+  .status-pill.reservado{background:var(--hold-bg);color:var(--hold);}
+  .status-pill.vendido{background:var(--sold-bg);color:var(--sold);}
+  .empty-row td{text-align:center;color:var(--granite);padding:34px;}
+
+  /* ---------- Contacto ---------- */
+  .contact-wrap{
+    display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  }
+  .contact-wrap .card{
+    background:var(--forest-dark);color:var(--stone);padding:44px;
+  }
+  .contact-wrap .card h3{color:var(--stone);font-size:1.4rem;margin-bottom:14px;}
+  .contact-wrap .card p{color:var(--stone-dim);}
+  .contact-list{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-direction:column;gap:14px;}
+  .contact-list a{text-decoration:none;color:var(--stone);font-size:0.98rem;border-bottom:1px solid rgba(242,240,232,0.3);padding-bottom:10px;display:block;}
+  .contact-list a:hover{border-color:var(--gold-soft);}
+  @media (max-width:860px){.contact-wrap{grid-template-columns:1fr;gap:36px;}.contact-wrap .card{padding:32px;}}
+
+  footer.site{padding:36px 0;border-top:1px solid var(--line);}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .foot-inner small{color:var(--granite);font-size:0.8rem;}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="mark"></span> Edifício Confiança</a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#renders">Renders</a>
+      <a href="#ficha-tecnica">Ficha técnica</a>
+      <a href="#fogos">Fogos disponíveis</a>
+      <a href="#contacto" class="nav-cta">Contactar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;border-top:none;">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="rule"></span> NOVA CONSTRUÇÃO · BRAGA</div>
+      <h1>Edifício Confiança</h1>
+      <p class="lede">Apartamentos T0 e T1 a estrear, a poucos minutos a pé do Campus de Gualtar da Universidade do Minho. Pensado para estudantes, docentes e investimento em arrendamento.</p>
+      <div class="hero-ctas">
+        <a href="#fogos" class="btn btn-primary">Ver fogos disponíveis</a>
+        <a href="#ficha-tecnica" class="btn btn-ghost">Ficha técnica (PIP)</a>
+      </div>
+      <div class="stat-strip">
+        <div><div class="num">20</div><div class="lbl">fogos T0 / T1</div></div>
+        <div><div class="num">5</div><div class="lbl">pisos</div></div>
+        <div><div class="num">450m</div><div class="lbl">até ao campus</div></div>
+        <div><div class="num">2027</div><div class="lbl">conclusão prevista</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="images/fachada-principal.jpg" alt="Render da fachada principal do Edifício Confiança"
+           onerror="this.replaceWith(phBlock('Render de fachada principal','fachada-principal.jpg','1600×1200'))">
+      <div class="cap">Render ilustrativo · sujeito a alterações de projeto</div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap about-grid">
+      <div>
+        <div class="section-num">SOBRE O PROJETO</div>
+        <h2>Viver a pé de distância da universidade</h2>
+        <p>O Edifício Confiança nasce num dos eixos mais procurados por estudantes e docentes da Universidade do Minho, com ligação direta ao Campus de Gualtar e boa cobertura de transportes para o centro de Braga. As tipologias T0 e T1 foram desenhadas para uso próprio ou para arrendamento, com acabamentos novos e áreas eficientes.</p>
+        <p>Este texto e os dados abaixo são um ponto de partida — substitua pela descrição real do projeto, memória descritiva e morada definitiva fornecidas pela promotora.</p>
+        <ul class="facts">
+          <li><span>Localização</span><span>Braga, junto ao Campus de Gualtar</span></li>
+          <li><span>Tipologias</span><span>T0 e T1</span></li>
+          <li><span>Nº de fogos</span><span>20</span></li>
+          <li><span>Pisos</span><span>Rés-do-chão + 4 pisos</span></li>
+          <li><span>Estacionamento</span><span>Lugar coberto por fogo (opcional)</span></li>
+          <li><span>Conclusão prevista</span><span>2º trimestre de 2027</span></li>
+        </ul>
+      </div>
+      <div class="locate-map">
+        <h3>Localização</h3>
+        <p class="addr">Rua Exemplo, nº 000, 4710-000 Braga<br>— substituir pela morada definitiva —</p>
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Universidade+do+Minho,+Campus+de+Gualtar,+Braga&output=embed"
+          title="Mapa de localização junto à Universidade do Minho"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENDERS -->
+  <section id="renders">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">MOCKUPS &amp; RENDERS</div>
+          <h2>Fachadas, interiores e áreas comuns</h2>
+        </div>
+        <p class="desc">Imagens de arquitetura ilustrativas do projeto. Substitua os ficheiros na pasta <code>images/</code> pelos renders finais — os nomes de ficheiro estão indicados em cada imagem.</p>
+      </div>
+
+      <div class="gal-tabs" id="galTabs">
+        <button class="gal-tab active" data-filter="todos">Todos</button>
+        <button class="gal-tab" data-filter="fachada">Fachada</button>
+        <button class="gal-tab" data-filter="interior">Interiores</button>
+        <button class="gal-tab" data-filter="comum">Áreas comuns</button>
+      </div>
+
+      <div class="gal-grid" id="galGrid"></div>
+    </div>
+  </section>
+
+  <!-- FICHA TÉCNICA / PIP -->
+  <section id="ficha-tecnica">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">PROCESSO CAMARÁRIO</div>
+          <h2>Ficha técnica e PIP de construção</h2>
+        </div>
+        <p class="desc">Dados do Pedido de Informação Prévia (PIP) submetido à Câmara Municipal. Valores de exemplo — substitua pelos dados reais do processo.</p>
+      </div>
+
+      <div class="pip-grid">
+        <div class="pip-row"><div>Nº de processo PIP</div><div>PIP-2026/000 — a preencher</div></div>
+        <div class="pip-row"><div>Entidade licenciadora</div><div>Câmara Municipal de Braga</div></div>
+        <div class="pip-row"><div>Data de submissão</div><div>— a preencher —</div></div>
+        <div class="pip-row"><div>Data de aprovação</div><div>— a preencher —</div></div>
+        <div class="pip-row"><div>Uso previsto</div><div>Habitação — T0 e T1</div></div>
+        <div class="pip-row"><div>Área de implantação</div><div>— m² — a preencher</div></div>
+        <div class="pip-row"><div>Área bruta de construção</div><div>— m² — a preencher</div></div>
+        <div class="pip-row"><div>Nº de pisos acima da cota</div><div>5 (r/c + 4)</div></div>
+        <div class="pip-row"><div>Cércea máxima</div><div>— m — a preencher</div></div>
+        <div class="pip-row"><div>Nº de fogos</div><div>20 (T0 e T1)</div></div>
+        <div class="pip-row"><div>Lugares de estacionamento</div><div>— a preencher —</div></div>
+        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>2º trimestre de 2027</div></div>
+      </div>
+
+      <div class="pip-foot">
+        <p class="pip-note">Para publicar o documento oficial, coloque o PDF em <code>documentos/ficha-tecnica-pip.pdf</code> — o botão abaixo já aponta para esse caminho.</p>
+        <a class="btn btn-primary" href="documentos/ficha-tecnica-pip.pdf" download>Descarregar ficha técnica (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABELA DE FOGOS -->
+  <section id="fogos">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="section-num">DISPONIBILIDADE</div>
+          <h2>Fogos por piso, área, preço e estado</h2>
+        </div>
+        <p class="desc">Tabela atualizável — edite o array <code>UNITS</code> no código para refletir a disponibilidade real. Clique nos cabeçalhos para ordenar.</p>
+      </div>
+
+      <div class="table-controls">
+        <input type="search" id="fSearch" placeholder="Procurar fogo (ex: 1.2)">
+        <select id="fPiso"><option value="">Todos os pisos</option></select>
+        <select id="fTipo">
+          <option value="">Todas as tipologias</option>
+          <option value="T0">T0</option>
+          <option value="T1">T1</option>
+        </select>
+        <select id="fEstado">
+          <option value="">Todos os estados</option>
+          <option value="disponivel">Disponível</option>
+          <option value="reservado">Reservado</option>
+          <option value="vendido">Vendido</option>
+        </select>
+        <div class="legend">
+          <span><i class="dot disponivel"></i>Disponível</span>
+          <span><i class="dot reservado"></i>Reservado</span>
+          <span><i class="dot vendido"></i>Vendido</span>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="units">
+          <thead>
+            <tr>
+              <th class="sortable" data-key="id">Fogo</th>
+              <th class="sortable" data-key="piso">Piso</th>
+              <th class="sortable" data-key="tipologia">Tipologia</th>
+              <th class="sortable" data-key="area">Área (m²)</th>
+              <th>Exposição</th>
+              <th class="sortable" data-key="preco">Preço</th>
+              <th class="sortable" data-key="estado">Estado</th>
+            </tr>
+          </thead>
+          <tbody id="unitsBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="wrap contact-wrap">
+      <div>
+        <div class="section-num">FALE CONNOSCO</div>
+        <h2>Interessado num fogo do Edifício Confiança?</h2>
+        <p>Envie-nos os seus dados ou contacte diretamente a agência para agendar uma visita, reservar um fogo ou pedir mais informação sobre o processo de construção.</p>
+      </div>
+      <div class="card">
+        <h3>Agência Imobiliária — Exemplo</h3>
+        <p>Substitua estes dados pelos contactos reais da agência.</p>
+        <ul class="contact-list">
+          <li><a href="tel:+351000000000">+351 000 000 000</a></li>
+          <li><a href="mailto:geral@agencia-exemplo.pt">geral@agencia-exemplo.pt</a></li>
+          <li><a href="https://wa.me/351000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap foot-inner">
+    <small>© <span id="year"></span> Edifício Confiança — informação sem valor contratual, sujeita a alteração.</small>
+    <small>Página gerida pela agência imobiliária</small>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose" aria-label="Fechar">✕</button>
+  <div id="lbContent"></div>
+  <div class="lightbox-cap" id="lbCap"></div>
+</div>
+
+<script>
+/* =====================================================================
+   DADOS DO EMPREENDIMENTO — edite aqui
+   ===================================================================== */
+
+// --- Galeria de renders/mockups ---------------------------------------
+// category: 'fachada' | 'interior' | 'comum'
+// file: nome do ficheiro dentro da pasta images/
+const GALLERY = [
+  { file: 'fachada-principal.jpg', category: 'fachada', label: 'Fachada principal' },
+  { file: 'fachada-lateral.jpg',   category: 'fachada', label: 'Fachada lateral' },
+  { file: 'fachada-noite.jpg',     category: 'fachada', label: 'Fachada ao anoitecer' },
+  { file: 'interior-t0-sala.jpg',  category: 'interior', label: 'T0 — sala e kitchenette' },
+  { file: 'interior-t1-quarto.jpg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-wc.jpg',       category: 'interior', label: 'Casa de banho' },
+  { file: 'atrio-entrada.jpg',     category: 'comum', label: 'Átrio de entrada' },
+  { file: 'terraco-comum.jpg',     category: 'comum', label: 'Terraço comum' },
+  { file: 'estacionamento.jpg',    category: 'comum', label: 'Estacionamento coberto' },
+];
+
+// --- Fogos: piso, tipologia, área, preço, estado ------------------------
+// estado: 'disponivel' | 'reservado' | 'vendido'
+const UNITS = [
+  {id:'0.1', piso:0, tipologia:'T0', area:38, preco:129000, estado:'disponivel', exp:'Nascente'},
+  {id:'0.2', piso:0, tipologia:'T1', area:58, preco:169000, estado:'reservado',  exp:'Poente'},
+  {id:'0.3', piso:0, tipologia:'T0', area:36, preco:125000, estado:'disponivel', exp:'Sul'},
+  {id:'0.4', piso:0, tipologia:'T1', area:60, preco:174000, estado:'vendido',    exp:'Norte'},
+  {id:'1.1', piso:1, tipologia:'T0', area:39, preco:131000, estado:'disponivel', exp:'Nascente'},
+  {id:'1.2', piso:1, tipologia:'T1', area:59, preco:172000, estado:'disponivel', exp:'Poente'},
+  {id:'1.3', piso:1, tipologia:'T0', area:37, preco:127000, estado:'reservado',  exp:'Sul'},
+  {id:'1.4', piso:1, tipologia:'T1', area:61, preco:178000, estado:'disponivel', exp:'Norte'},
+  {id:'2.1', piso:2, tipologia:'T0', area:39, preco:133000, estado:'disponivel', exp:'Nascente'},
+  {id:'2.2', piso:2, tipologia:'T1', area:59, preco:175000, estado:'vendido',    exp:'Poente'},
+  {id:'2.3', piso:2, tipologia:'T0', area:37, preco:129000, estado:'disponivel', exp:'Sul'},
+  {id:'2.4', piso:2, tipologia:'T1', area:61, preco:181000, estado:'disponivel', exp:'Norte'},
+  {id:'3.1', piso:3, tipologia:'T0', area:40, preco:136000, estado:'disponivel', exp:'Nascente'},
+  {id:'3.2', piso:3, tipologia:'T1', area:60, preco:179000, estado:'disponivel', exp:'Poente'},
+  {id:'3.3', piso:3, tipologia:'T0', area:38, preco:132000, estado:'reservado',  exp:'Sul'},
+  {id:'3.4', piso:3, tipologia:'T1', area:62, preco:184000, estado:'disponivel', exp:'Norte'},
+  {id:'4.1', piso:4, tipologia:'T0', area:41, preco:139000, estado:'disponivel', exp:'Nascente'},
+  {id:'4.2', piso:4, tipologia:'T1', area:63, preco:192000, estado:'disponivel', exp:'Poente'},
+  {id:'4.3', piso:4, tipologia:'T0', area:40, preco:137000, estado:'disponivel', exp:'Sul'},
+  {id:'4.4', piso:4, tipologia:'T1', area:65, preco:198000, estado:'reservado',  exp:'Norte'},
+];
+
+/* =====================================================================
+   Não é necessário editar abaixo desta linha
+   ===================================================================== */
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// --- Placeholder para imagens em falta ---------------------------------
+function phBlock(label, filename, dims){
+  const el = document.createElement('div');
+  el.className = 'ph';
+  el.style.position = 'absolute';
+  el.style.inset = '0';
+  el.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+      <rect x="3" y="4" width="18" height="15" rx="0.5"/>
+      <circle cx="8.5" cy="9.5" r="1.6"/>
+      <path d="M21 15l-5.5-5.5L9 16"/>
+    </svg>
+    <small><strong>${label}</strong><br>images/${filename} (${dims})</small>`;
+  el.style.display = 'flex';
+  el.style.flexDirection = 'column';
+  el.style.alignItems = 'center';
+  el.style.justifyContent = 'center';
+  el.style.gap = '8px';
+  el.style.color = 'var(--granite)';
+  el.style.textAlign = 'center';
+  el.style.padding = '14px';
+  el.style.background = 'var(--stone-dim)';
+  el.style.width = '100%';
+  el.style.height = '100%';
+  return el;
+}
+
+// --- Galeria -------------------------------------------------------------
+const galGrid = document.getElementById('galGrid');
+const catLabels = {fachada:'Fachada', interior:'Interior', comum:'Área comum'};
+
+function renderGallery(filter){
+  galGrid.innerHTML = '';
+  GALLERY.filter(g => filter === 'todos' || g.category === filter).forEach((g, i) => {
+    const item = document.createElement('div');
+    item.className = 'gal-item';
+    item.innerHTML = `<span class="tag">${catLabels[g.category]}</span>
+      <img src="images/${g.file}" alt="${g.label}" loading="lazy">`;
+    const img = item.querySelector('img');
+    img.onerror = () => { img.replaceWith(phBlock(g.label, g.file, '1200×900')); };
+    item.addEventListener('click', () => openLightbox(g));
+    galGrid.appendChild(item);
+  });
+}
+renderGallery('todos');
+
+document.getElementById('galTabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.gal-tab');
+  if(!btn) return;
+  document.querySelectorAll('.gal-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGallery(btn.dataset.filter);
+});
+
+// --- Lightbox --------------------------------------------------------------
+const lightbox = document.getElementById('lightbox');
+const lbContent = document.getElementById('lbContent');
+const lbCap = document.getElementById('lbCap');
+
+function openLightbox(g){
+  lbContent.innerHTML = `<img src="images/${g.file}" alt="${g.label}">`;
+  const img = lbContent.querySelector('img');
+  img.onerror = () => { img.replaceWith(phBlock(g.label, g.file, 'imagem em falta')); lbContent.firstChild.classList.add('ph-big'); };
+  lbCap.textContent = g.label;
+  lightbox.classList.add('open');
+}
+function closeLightbox(){ lightbox.classList.remove('open'); lbContent.innerHTML=''; }
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+
+// --- Mobile nav --------------------------------------------------------------
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+navLinks.addEventListener('click', (e) => { if(e.target.tagName === 'A') navLinks.classList.remove('open'); });
+
+// --- Tabela de fogos --------------------------------------------------------
+const fSearch = document.getElementById('fSearch');
+const fPiso = document.getElementById('fPiso');
+const fTipo = document.getElementById('fTipo');
+const fEstado = document.getElementById('fEstado');
+const unitsBody = document.getElementById('unitsBody');
+
+const pisos = [...new Set(UNITS.map(u => u.piso))].sort((a,b) => a-b);
+pisos.forEach(p => {
+  const opt = document.createElement('option');
+  opt.value = p;
+  opt.textContent = p === 0 ? 'Rés-do-chão' : `Piso ${p}`;
+  fPiso.appendChild(opt);
+});
+
+const statusLabel = { disponivel:'Disponível', reservado:'Reservado', vendido:'Vendido' };
+const currency = new Intl.NumberFormat('pt-PT', { style:'currency', currency:'EUR', maximumFractionDigits:0 });
+
+let sortKey = 'id';
+let sortDir = 1;
+
+function currentRows(){
+  const q = fSearch.value.trim().toLowerCase();
+  const piso = fPiso.value;
+  const tipo = fTipo.value;
+  const estado = fEstado.value;
+  let rows = UNITS.filter(u => {
+    if(q && !u.id.toLowerCase().includes(q)) return false;
+    if(piso !== '' && String(u.piso) !== piso) return false;
+    if(tipo && u.tipologia !== tipo) return false;
+    if(estado && u.estado !== estado) return false;
+    return true;
+  });
+  rows.sort((a,b) => {
+    let va = a[sortKey], vb = b[sortKey];
+    if(typeof va === 'string') { va = va.toLowerCase(); vb = vb.toLowerCase(); }
+    if(va < vb) return -1 * sortDir;
+    if(va > vb) return 1 * sortDir;
+    return 0;
+  });
+  return rows;
+}
+
+function renderTable(){
+  const rows = currentRows();
+  unitsBody.innerHTML = '';
+  if(rows.length === 0){
+    unitsBody.innerHTML = `<tr class="empty-row"><td colspan="7">Nenhum fogo corresponde aos filtros escolhidos.</td></tr>`;
+    return;
+  }
+  rows.forEach(u => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${u.id}</td>
+      <td>${u.piso === 0 ? 'R/C' : u.piso}</td>
+      <td>${u.tipologia}</td>
+      <td>${u.area}</td>
+      <td>${u.exp}</td>
+      <td>${currency.format(u.preco)}</td>
+      <td><span class="status-pill ${u.estado}"><i class="dot ${u.estado}"></i>${statusLabel[u.estado]}</span></td>
+    `;
+    unitsBody.appendChild(tr);
+  });
+}
+renderTable();
+
+[fSearch, fPiso, fTipo, fEstado].forEach(el => el.addEventListener('input', renderTable));
+
+document.querySelectorAll('table.units th.sortable').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.key;
+    if(sortKey === key){ sortDir *= -1; } else { sortKey = key; sortDir = 1; }
+    document.querySelectorAll('table.units th').forEach(h => h.classList.remove('sort-asc','sort-desc'));
+    th.classList.add(sortDir === 1 ? 'sort-asc' : 'sort-desc');
+    renderTable();
+  });
+});
+</script>
+</body>
+</html>
