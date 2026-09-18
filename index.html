@@ -446,7 +446,7 @@
           <div class="section-num">PROJETO DE ARQUITETURA</div>
           <h2>Plantas dos pisos</h2>
         </div>
-        <p class="desc">Plantas técnicas de cada piso. Coloque os ficheiros em <code>images/plantas/</code> com os nomes indicados em cada imagem.</p>
+        <p class="desc">Plantas técnicas de cada piso.
       </div>
       <div class="gal-grid" id="plantasGrid"></div>
     </div>
@@ -460,21 +460,21 @@
           <div class="section-num">PROCESSO CAMARÁRIO</div>
           <h2>Ficha técnica e PIP de construção</h2>
         </div>
-        <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto. Campos ainda não documentados estão assinalados como "a preencher".</p>
+        <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto.</p>
       </div>
 
       <div class="pip-grid">
         <div class="pip-row"><div>Tipo de processo</div><div>Informação Prévia Simples (PIP)</div></div>
         <div class="pip-row"><div>Entidade licenciadora</div><div>Câmara Municipal de Braga</div></div>
         <div class="pip-row"><div>Morada</div><div>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</div></div>
-        <div class="pip-row"><div>Uso previsto</div><div>Habitação multifamiliar — Piso 0: 1T0+3T1 · Piso 1: 1T0+3T1 · Piso 2 recuado: 2T0+2T1 · Piso 3 traseiras: 2T1</div></div>
+        <div class="pip-row"><div>Uso previsto</div><div>Habitação multifamiliar — Piso 0: 1 T0 + 3 T1 · Piso 1: 1 T0 + 3 T1 · Piso 2 recuado: 2 T0 + 2 T1 · Piso 3 traseiras: 2 T1</div></div>
         <div class="pip-row"><div>Nº de fogos</div><div>14 (4 T0 + 10 T1)</div></div>
         <div class="pip-row"><div>Pisos acima da cota de soleira</div><div>4 — piso 0, 1º, 2º recuado e 3º traseiras</div></div>
         <div class="pip-row"><div>Pisos abaixo da cota de soleira</div><div>1 — garagens coletivas</div></div>
         <div class="pip-row"><div>Lugares de estacionamento</div><div>12 (garagens coletivas, piso -1)</div></div>
         <div class="pip-row"><div>Área bruta de construção</div><div>1 161,00 m² (total indicado no PIP)</div></div>
         <div class="pip-row"><div>Elementos preservados</div><div>Fachada e parede do edifício existente</div></div>
-        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>— a preencher —</div></div>
+        <div class="pip-row"><div>Prazo previsto de conclusão</div><div>2027</div></div>
       </div>
 
       <div class="table-scroll" style="margin-top:26px;">
@@ -500,9 +500,9 @@
       <div class="section-head">
         <div>
           <div class="section-num">DISPONIBILIDADE</div>
-          <h2>Fogos por piso, área, preço e estado</h2>
+          <h2>Fogos existentes por piso e àrea </h2>
         </div>
-        <p class="desc">Todos os fogos incluem lugar de garagem. Tabela atualizável — edite o array <code>UNITS</code> no código para refletir a disponibilidade real. Clique nos cabeçalhos para ordenar.</p>
+        <p class="desc">Todos os fogos incluem lugar de garagem. Clique nos cabeçalhos para ordenar.</p>
       </div>
 
       <div class="table-controls">
@@ -611,13 +611,12 @@ const GALLERY = [
   { file: 'interior-quarto-t1.jpeg',category: 'interior', label: 'T1 — quarto' },
   { file: 'interior-quarto-t1-2.jpeg',category: 'interior', label: 'T1 — quarto' },
   { file: 'interior-quarto-t1-3.jpeg',category: 'interior', label: 'T1 — quarto' },
-  { file: 'interior-t1-quarto.jpeg',category: 'interior', label: 'T1 — quarto' },
   { file: 'interior-wc.jpeg',       category: 'interior', label: 'Casa de banho' },
   { file: 'interior-wc-2.jpeg',       category: 'interior', label: 'Casa de banho' },  
   { file: 'interior-wc-3.jpeg',       category: 'interior', label: 'Casa de banho' },
   { file: 'atrio-entrada.jpeg',     category: 'comum', label: 'Átrio de entrada' },
-  { file: 'terraco-comum.jpeg',     category: 'comum', label: 'Terraço comum' },
-  { file: 'estacionamento.jpeg',    category: 'comum', label: 'Estacionamento coberto' },
+//  { file: 'terraco-comum.jpeg',     category: 'comum', label: 'Terraço comum' },
+ // { file: 'estacionamento.jpeg',    category: 'comum', label: 'Estacionamento coberto' },
 ];
 
 // --- Plantas dos pisos ---------------------------------------------------
