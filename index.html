@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Edifício Confiança — T0 e T1 junto à Universidade do Minho</title>
-<meta name="description" content="Edifício Confiança: apartamentos T0 e T1 novos, junto ao Campus de Gualtar da Universidade do Minho, Braga. Consulte fogos disponíveis, preços e ficha técnica.">
+<meta name="description" content="Edifício Confiança: apartamentos T0 e T1 novos, junto ao Campus de Gualtar da Universidade do Minho, Braga. Consulte as frações disponíveis, preços e ficha técnica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -193,20 +193,25 @@
   @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:40px;}}
 
   /* ---------- Pontos de interesse ---------- */
-  .poi-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);}
-  .poi-list li{
-    display:flex;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);
+  .poi-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);
   }
-  .poi-name{
-    font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;color:var(--forest-dark);
-    white-space:nowrap;
+  .poi-card{
+    background:var(--white);padding:26px 22px;display:flex;flex-direction:column;gap:12px;
   }
-  .poi-leader{flex:1;border-bottom:1px dotted var(--granite);margin-bottom:6px;min-width:24px;}
-  .poi-dist{font-size:0.95rem;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .poi-icon{
+    width:38px;height:38px;border:1px solid var(--gold-soft);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--gold);flex:none;
+  }
+  .poi-icon svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+  .poi-dist{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.7rem;color:var(--forest-dark);line-height:1;
+  }
+  .poi-dist small{font-size:0.95rem;font-weight:400;color:var(--granite);margin-left:2px;}
+  .poi-name{font-size:0.88rem;color:var(--ink-soft);line-height:1.4;}
   @media (max-width:600px){
-    .poi-list li{flex-wrap:wrap;row-gap:4px;}
-    .poi-name{white-space:normal;flex:1 1 100%;}
-    .poi-leader{display:none;}
+    .poi-grid{grid-template-columns:repeat(2,1fr);}
   }
 
   /* ---------- Gallery ---------- */
@@ -252,6 +257,20 @@
     color:var(--stone);width:38px;height:38px;cursor:pointer;font-size:1.1rem;
   }
   .lightbox-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:var(--stone-dim);font-size:0.85rem;}
+  .lightbox-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    background:rgba(255,255,255,0.1);border:1px solid rgba(242,240,232,0.4);color:var(--stone);
+    width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.6rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .lightbox-nav:hover{background:rgba(255,255,255,0.2);}
+  .lightbox-prev{left:16px;}
+  .lightbox-next{right:16px;}
+  @media (max-width:600px){
+    .lightbox-nav{width:38px;height:38px;font-size:1.3rem;}
+    .lightbox-prev{left:6px;}
+    .lightbox-next{right:6px;}
+  }
 
   /* ---------- PIP / Ficha técnica ---------- */
   .pip-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--white);}
@@ -319,23 +338,38 @@
   table.units tbody tr:last-child td{border-bottom:none;}
   @media (max-width:700px){
     .table-scroll{overflow-x:visible;border:none;}
-    table.units{min-width:0;border:none;}
+    table.units{min-width:0;border:none;border-collapse:separate;border-spacing:0;}
     table.units thead{position:absolute;left:-9999px;top:-9999px;}
-    table.units tbody, table.units tr, table.units td{display:block;width:100%;}
+    table.units tbody{display:block;}
     table.units tr{
-      border:1px solid var(--line);background:var(--white);margin-bottom:14px;padding:4px 16px;
+      display:grid;grid-template-columns:1fr 1fr;
+      border:1px solid var(--line);background:var(--white);margin-bottom:12px;
     }
-    table.units tr.empty-row{border:none;padding:0;}
+    table.units tr.empty-row{display:block;border:none;padding:0;}
     table.units td{
-      display:flex;justify-content:space-between;align-items:center;gap:14px;
-      padding:11px 0;border-bottom:1px solid var(--stone-dim);text-align:right;
+      padding:9px 14px;border-bottom:1px solid var(--stone-dim);
+      font-size:0.86rem;text-align:left;
     }
-    table.units td:last-child{border-bottom:none;}
     table.units td::before{
-      content:attr(data-label);color:var(--granite);font-size:0.78rem;
-      text-transform:uppercase;letter-spacing:0.02em;text-align:left;
+      content:attr(data-label);display:block;color:var(--granite);font-size:0.68rem;
+      text-transform:uppercase;letter-spacing:0.02em;margin-bottom:2px;
     }
+    /* Fração é o cabeçalho do cartão — ocupa a largura toda, sem rótulo */
+    table.units td[data-label="Fração"]{
+      grid-column:1/-1;font-family:'Fraunces',serif;font-weight:500;font-size:1.02rem;color:var(--forest-dark);
+      padding:13px 14px 9px;
+    }
+    table.units td[data-label="Fração"]::before{display:none;}
+    /* Garagem é igual em todas as frações — omite-se do cartão, fica só na nota abaixo */
+    table.units td[data-label="Garagem"]{display:none;}
+    /* Estado fecha o cartão, ocupa a largura toda */
+    table.units td[data-label="Estado"]{
+      grid-column:1/-1;border-bottom:none;padding:9px 14px 13px;
+    }
+    /* células sem valor (ex: sem terraço) não ocupam espaço no cartão */
+    table.units td[data-empty="true"]{display:none;}
   }
+  table.units td.has-bbq{color:var(--forest-dark);font-weight:500;}
   .status-pill{
     display:inline-flex;align-items:center;gap:6px;padding:4px 10px;font-size:0.8rem;border-radius:12px;
   }
@@ -372,11 +406,11 @@
     <nav class="links" id="navLinks">
       <a href="#sobre">Sobre</a>
       <a href="#pontos-interesse">Proximidades</a>
-      <a href="#renders">Renders</a>
+      <a href="#renders">Galeria</a>
       <a href="#plantas">Plantas</a>
       <a href="#ficha-tecnica">Ficha técnica</a>
-      <a href="#fogos">Fogos disponíveis</a>
-      <a href="#contacto" class="nav-cta">Contactar</a>
+      <a href="#fracoes">Frações disponíveis</a>
+      <a href="#contacto">Contactos</a>
     </nav>
   </div>
 </header>
@@ -388,13 +422,12 @@
     <div class="hero-text">
       <div class="hero-eyebrow"><span class="rule"></span> REABILITAÇÃO · RUA NOVA DE SANTA CRUZ, BRAGA</div>
       <h1>Edifício Confiança</h1>
-      <p class="lede">Apartamentos T0, T1 e T1+1 a estrear, a 5–10 minutos a pé do Campus de Gualtar da Universidade do Minho. Fachada e parede originais preservadas, com garagens coletivas.</p>
+      <p class="lede">Apartamentos T0, T1 e T1+1 a estrear, a 5–10 minutos a pé do Campus de Gualtar da Universidade do Minho. Fachada e parede originais preservadas, com garagens coletivas, elevador do -1 ao último piso e churrasqueira na varanda em frações selecionadas.</p>
       <div class="hero-ctas">
-        <a href="#fogos" class="btn btn-primary">Ver fogos disponíveis</a>
-        <a href="#ficha-tecnica" class="btn btn-ghost">Ficha técnica (PIP)</a>
+        <a href="#fracoes" class="btn btn-primary">Ver frações disponíveis</a>
       </div>
       <div class="stat-strip">
-        <div><div class="num">14</div><div class="lbl">fogos T0 / T1 / T1+1</div></div>
+        <div><div class="num">14</div><div class="lbl">frações T0 / T1 / T1+1</div></div>
         <div><div class="num">4</div><div class="lbl">pisos, incl. recuado</div></div>
         <div><div class="num">12</div><div class="lbl">lugares de garagem</div></div>
         <div><div class="num">1161m²</div><div class="lbl">área bruta de construção</div></div>
@@ -412,16 +445,19 @@
     <div class="wrap about-grid">
       <div>
         <div class="section-num">SOBRE O PROJETO</div>
-        <h2>Viver a pé de distância da universidade</h2>
-        <p>O Edifício Confiança nasce na Rua Nova de Santa Cruz, em Braga (S. Vitor) — a rua que liga o centro histórico ao Campus de Gualtar da Universidade do Minho, a cerca de 5 a 10 minutos a pé. O projeto preserva a fachada e a parede do edifício existente e organiza-se em habitação multifamiliar do piso 0 ao piso recuado, com garagens coletivas ao nível do piso -1.</p>
-        <p>Dados de acordo com a Informação Prévia Simples (PIP) submetida; morada e composição por piso estão confirmadas, faltando ainda confirmar o número de processo, datas e prazo de conclusão com a promotora.</p>
+        <h2>Viver a passos do sucesso: o epicentro universitário de Braga</h2>
+        <p>No coração de S. Vitor, na emblemática Rua Nova de Santa Cruz, nasce o Edifício Confiança — o endereço perfeito para quem valoriza a máxima conveniência urbanística. Localização verdadeiramente estratégica: a apenas 5 a 10 minutos a pé do Campus de Gualtar da Universidade do Minho e perfeitamente ligado ao centro histórico de Braga. Este projeto exclusivo reflete o equilíbrio perfeito entre a elegância da arquitetura tradicional e a sofisticação contemporânea. Ao preservar a fachada e a identidade do edifício original, dá vida a uma comunidade residencial multifamiliar (do piso 0 ao piso recuado), pensada até ao último detalhe.</p>
+        <p><b>Conveniência Absoluta:</b> Oportunidade única de T0 e T1 com acabamentos premium, rodeados por uma oferta completa de serviços, comércio e transportes à porta.</p>
+        <p><b>Conforto Sem Concessões:</b> Todas as unidades beneficiam de lugar de garagem privativo na garagem coletiva no piso -1, com acesso direto por elevador desde a garagem até ao último piso — um luxo e diferencial raro nesta localização. As frações dos pisos Trás e Recuados contam ainda com churrasqueira na varanda, perfeitas para momentos ao ar livre.</p>
+        <p></p>
+        <p>Uma oportunidade imperdível de habitação própria ou de investimento de rentabilidade garantida num dos eixos mais dinâmicos e valorizados da cidade.</p>
         <ul class="facts">
           <li><span>Localização</span><span>Rua Nova de Santa Cruz, n.ºs 67 a 71 e 73 a 77 — Braga (S. Vitor)</span></li>
           <li><span>Tipologias</span><span>T0, T1 e T1+1 (4 T0 + 10 T1)</span></li>
           <li><span>Nº de fogos</span><span>14</span></li>
           <li><span>Pisos</span><span>Piso -1 (garagens) · 0 · 1 · 2 recuado · 3 traseiras</span></li>
-          <li><span>Estacionamento</span><span>Garagens coletivas — 12 lugares</span></li>
-          <li><span>Conclusão prevista</span><span>— a confirmar —</span></li>
+          <li><span>Estacionamento</span><span>Lugares de Garagem — 14 vagas</span></li>
+          <li><span>Conclusão prevista</span><span>2027</span></li>
         </ul>
       </div>
       <div class="locate-map">
@@ -444,13 +480,43 @@
         </div>
         <p class="desc">Distâncias em linha reta a partir da morada do empreendimento. O percurso real a pé ou de carro pode ser um pouco mais longo, consoante o trajeto.</p>
       </div>
-      <ul class="poi-list">
-        <li><span class="poi-name">Universidade do Minho — Campus de Gualtar</span><span class="poi-leader"></span><span class="poi-dist">≈ 340 m</span></li>
-        <li><span class="poi-name">Meliá Braga Hotel &amp; Spa</span><span class="poi-leader"></span><span class="poi-dist">≈ 400 m</span></li>
-        <li><span class="poi-name">Braga Parque (shopping)</span><span class="poi-leader"></span><span class="poi-dist">≈ 530 m</span></li>
-        <li><span class="poi-name">Hospital de Braga</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,2 km</span></li>
-        <li><span class="poi-name">Bom Jesus do Monte</span><span class="poi-leader"></span><span class="poi-dist">≈ 1,9 km</span></li>
-      </ul>
+      <div class="poi-grid">
+        <div class="poi-card">
+          <span class="poi-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3L2 8l10 5 10-5-10-5z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 8v6"/></svg>
+          </span>
+          <span class="poi-dist">340<small>m</small></span>
+          <span class="poi-name">Universidade do Minho — Campus de Gualtar</span>
+        </div>
+        <div class="poi-card">
+          <span class="poi-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 18v-7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"/><path d="M3 14h18v6"/><path d="M13 14v-2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><circle cx="6" cy="10" r="1.3"/></svg>
+          </span>
+          <span class="poi-dist">400<small>m</small></span>
+          <span class="poi-name">Meliá Braga Hotel &amp; Spa</span>
+        </div>
+        <div class="poi-card">
+          <span class="poi-icon">
+            <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          </span>
+          <span class="poi-dist">530<small>m</small></span>
+          <span class="poi-name">Centro Comercial Braga Parque</span>
+        </div>
+        <div class="poi-card">
+          <span class="poi-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+          </span>
+          <span class="poi-dist">1,2<small>km</small></span>
+          <span class="poi-name">Hospital de Braga</span>
+        </div>
+        <div class="poi-card">
+          <span class="poi-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 20h4v-4h4v-4h4v-4h4V4"/></svg>
+          </span>
+          <span class="poi-dist">1,9<small>km</small></span>
+          <span class="poi-name">Bom Jesus do Monte</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -459,10 +525,10 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <div class="section-num">MOCKUPS &amp; RENDERS</div>
-          <h2>Fachadas, interiores e áreas comuns</h2>
+          <div class="section-num">GALERIA</div>
+          <h2>Fotos e renders do projeto</h2>
         </div>
-        <p class="desc">Imagens de arquitetura ilustrativas do projeto. Substitua os ficheiros na pasta <code>images/</code> pelos renders finais — os nomes de ficheiro estão indicados em cada imagem.</p>
+           <p class="desc">Fachadas, interiores e áreas comuns. Toque numa foto para ampliar — depois é só deslizar para o lado (ou usar as setas) para navegar.</p>
       </div>
 
       <div class="gal-tabs" id="galTabs">
@@ -484,7 +550,7 @@
           <div class="section-num">PROJETO DE ARQUITETURA</div>
           <h2>Plantas dos pisos</h2>
         </div>
-        <p class="desc">Plantas técnicas de cada piso. Coloque os ficheiros em <code>images/plantas/</code> com os nomes indicados em cada imagem.</p>
+        <p class="desc">Plantas técnicas de cada piso.</p>
       </div>
       <div class="gal-grid" id="plantasGrid"></div>
     </div>
@@ -498,11 +564,22 @@
           <div class="section-num">PROCESSO CAMARÁRIO</div>
           <h2>Ficha técnica e PIP de construção</h2>
         </div>
-        <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto. Campos ainda não documentados estão assinalados como "a preencher".</p>
+        <p class="desc">Dados extraídos da Informação Prévia Simples (PIP) do projeto.</p>
       </div>
 
       <details class="pip-details">
         <summary>Ver ficha técnica completa</summary>
+																										
+																																   
+																																																	  
+																					  
+																																	 
+																												
+																																  
+															
+																													 
+																						 
+			
 
         <div class="pip-grid">
           <div class="pip-row"><div>Tipo de processo</div><div>Informação Prévia Simples (PIP)</div></div>
@@ -513,6 +590,7 @@
           <div class="pip-row"><div>Pisos acima da cota de soleira</div><div>4 — piso 0, 1º, 2º recuado e 3º traseiras</div></div>
           <div class="pip-row"><div>Pisos abaixo da cota de soleira</div><div>1 — garagens coletivas</div></div>
           <div class="pip-row"><div>Lugares de estacionamento</div><div>12 (garagens coletivas, piso -1)</div></div>
+          <div class="pip-row"><div>Elevador</div><div>Sim — do piso -1 (garagem) ao último piso</div></div>
           <div class="pip-row"><div>Área bruta de construção</div><div>1 161,00 m² (total indicado no PIP)</div></div>
           <div class="pip-row"><div>Elementos preservados</div><div>Fachada e parede do edifício existente</div></div>
           <div class="pip-row"><div>Prazo previsto de conclusão</div><div>— a preencher —</div></div>
@@ -536,15 +614,15 @@
     </div>
   </section>
 
-  <!-- TABELA DE FOGOS -->
-  <section id="fogos">
+  <!-- TABELA DE FRAÇÕES-->
+  <section id="fracoes">
     <div class="wrap">
       <div class="section-head">
         <div>
           <div class="section-num">DISPONIBILIDADE</div>
-          <h2>Fogos por piso, área, preço e estado</h2>
+          <h2>Frações existentes por piso e àrea </h2>
         </div>
-        <p class="desc">Todos os fogos incluem lugar de garagem. Tabela atualizável — edite o array <code>UNITS</code> no código para refletir a disponibilidade real. Clique nos cabeçalhos para ordenar.</p>
+        <p class="desc">Todos as frações incluem lugar de garagem. Clique nos cabeçalhos para ordenar.</p>
       </div>
 
       <div class="table-controls">
@@ -576,7 +654,8 @@
               <th class="sortable" data-key="piso">Piso</th>
               <th class="sortable" data-key="id">Fração</th>
               <th class="sortable" data-key="tipologia">Tipologia</th>
-              <th>Garagem</th>
+              <th>Lugar Garagem</th>
+              <th class="sortable" data-key="churrasqueira">Churrasqueira</th>
               <th class="sortable" data-key="area">Área (m²)</th>
               <th class="sortable" data-key="terraco">Área Terraço (m²)</th>
               <th class="sortable" data-key="preco">Preço</th>
@@ -586,7 +665,7 @@
           <tbody id="unitsBody"></tbody>
         </table>
       </div>
-      <p style="font-size:0.8rem;color:var(--granite);margin-top:14px;">Todos os fogos incluem lugar de garagem. Área de terraço a confirmar nas plantas finais.</p>
+      <p style="font-size:0.8rem;color:var(--granite);margin-top:14px;">Todas as frações incluem lugar de garagem. Área de terraço a confirmar nas plantas finais.</p>
     </div>
   </section>
 
@@ -595,16 +674,17 @@
     <div class="wrap contact-wrap">
       <div>
         <div class="section-num">FALE CONNOSCO</div>
-        <h2>Interessado num fogo do Edifício Confiança?</h2>
-        <p>Envie-nos os seus dados ou contacte diretamente a agência para agendar uma visita, reservar um fogo ou pedir mais informação sobre o processo de construção.</p>
+        <h2>Quer saber mais sobre o Edifício Confiança?</h2>
+        <p></p>
+        <p>Garanta o seu novo T0 ou T1 a passos da Universidade do Minho. Deixe-nos os seus dados ou contacte-nos diretamente para agendar uma reunião, reservar a sua fração ou obter todos os detalhes sobre o projeto.</p>
       </div>
       <div class="card">
         <h3>Nuno Teixeira Imóveis</h3>
         <p>Fale connosco para agendar uma visita ou reservar um fogo.</p>
         <ul class="contact-list">
-          <li><a href="tel:+351918624127">+351 918 624 127</a></li>
-          <li><a href="mailto:nunoteixeira1960@gmail.com">nunoteixeira1960@gmail.com</a></li>
-          <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="tel:+351918624127">📞+351 918 624 127</a></li>
+          <li><a href="mailto:nunoteixeira1960@gmail.com">✉️ nunoteixeira1960@gmail.com</a></li>
+          <li><a href="https://wa.me/351918624127" target="_blank" rel="noopener">WhatsApp 💬</a></li>         
         </ul>
       </div>
     </div>
@@ -614,15 +694,17 @@
 
 <footer class="site">
   <div class="wrap foot-inner">
-    <small>© <span id="year"></span> Edifício Confiança — informação sem valor contratual, sujeita a alteração.</small>
-    <small>Página gerida por Nuno Teixeira Imóveis</small>
+    <small>© <span id="year"></span> Nuno Teixeira Imóveis· Todos os direitos reservados — informação sem valor contratual, sujeita a alteração.</small>
+															
   </div>
 </footer>
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lbClose" aria-label="Fechar">✕</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Foto anterior">‹</button>
   <div id="lbContent"></div>
+  <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Foto seguinte">›</button>
   <div class="lightbox-cap" id="lbCap"></div>
 </div>
 
@@ -636,26 +718,41 @@
 // file: nome do ficheiro dentro da pasta images/
 const GALLERY = [
   { file: 'fachada-principal-provalorem.png', category: 'fachada', label: 'Fachada principal' },
-  { file: 'fachada-principal.jpg', category: 'fachada', label: 'Fachada principal' },
-  { file: 'fachada-lateral.jpg',   category: 'fachada', label: 'Fachada lateral' },
-  { file: 'fachada-noite.jpg',     category: 'fachada', label: 'Fachada ao anoitecer' },
-  { file: 'interior-t0-sala.jpg',  category: 'interior', label: 'T0 — sala e kitchenette' },
-  { file: 'interior-t1-quarto.jpg',category: 'interior', label: 'T1 — quarto' },
-  { file: 'interior-wc.jpg',       category: 'interior', label: 'Casa de banho' },
-  { file: 'atrio-entrada.jpg',     category: 'comum', label: 'Átrio de entrada' },
-  { file: 'terraco-comum.jpg',     category: 'comum', label: 'Terraço comum' },
-  { file: 'estacionamento.jpg',    category: 'comum', label: 'Estacionamento coberto' },
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' },
+  { file: 'fachada-lateral.jpeg',   category: 'fachada', label: 'Fachada lateral' },
+  { file: 'fachada-principal-2.jpeg', category: 'fachada', label: 'Fachada principal R/C' },  
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' }, 
+  { file: 'fachada-principal.jpeg', category: 'fachada', label: 'Fachada principal' },  
+  { file: 'fachada-traseiras.jpeg', category: 'fachada', label: 'Fachada Traseiras' },  
+  { file: 'fachada-traseiras-2.jpeg', category: 'fachada', label: 'Fachada Traseiras Portão' },   
+  { file: 'fachada-traseiras-3.jpeg', category: 'fachada', label: 'Fachada Traseiras Lateral' },    
+  { file: 'cozinha.jpeg',       category: 'interior', label: 'Cozinha' },  
+  { file: 'cozinha-entrada.jpeg',       category: 'interior', label: 'Cozinha e Entrada Principal' },
+  { file: 'cozinha-entrada-2.jpeg',       category: 'interior', label: 'Cozinha e Entrada Principal 2' },
+  { file: 'cozinha-sala.jpeg',       category: 'interior', label: 'Cozinha e Sala' },
+  { file: 'cozinha-sala-3.jpeg',       category: 'interior', label: 'Cozinha e Sala' },
+  { file: 'hall-entrada.jpeg',       category: 'interior', label: 'Hall de Entrada' }, 
+  { file: 'interior-t0-sala.jpeg',  category: 'interior', label: 'T0 — sala e kitchenette' },
+  { file: 'interior-quarto-t1.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-quarto-t1-2.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-quarto-t1-3.jpeg',category: 'interior', label: 'T1 — quarto' },
+  { file: 'interior-wc.jpeg',       category: 'interior', label: 'Casa de banho' },
+  { file: 'interior-wc-2.jpeg',       category: 'interior', label: 'Casa de banho' },  
+  { file: 'interior-wc-3.jpeg',       category: 'interior', label: 'Casa de banho' },
+  { file: 'atrio-entrada.jpeg',     category: 'comum', label: 'Átrio de entrada' },
+//  { file: 'terraco-comum.jpeg',     category: 'comum', label: 'Terraço comum' },
+ // { file: 'estacionamento.jpeg',    category: 'comum', label: 'Estacionamento coberto' },
 ];
 
 // --- Plantas dos pisos ---------------------------------------------------
 // file: nome do ficheiro dentro da pasta images/plantas/
 const PLANTAS = [
-  { file: 'planta-piso--1.jpg',          label: 'Planta Piso -1' },
-  { file: 'planta-piso-0.jpg',           label: 'Planta Piso 0' },
-  { file: 'planta-piso-1.jpg',           label: 'Planta Piso 1' },
-  { file: 'planta-piso-2-recuado.jpg',   label: 'Planta Piso 2 Recuado' },
-  { file: 'planta-piso-3-traseiras.jpg', label: 'Planta Piso 3 Traseiras' },
-  { file: 'planta-cobertura.jpg',        label: 'Planta da Cobertura' },
+  { file: 'planta-piso--1.png',          label: 'Piso -1' },
+  { file: 'planta-piso-0.png',           label: 'Piso 0' },
+  { file: 'planta-piso-1.png',           label: 'Piso 1' },
+  { file: 'planta-piso-2-recuado.png',   label: 'Piso 2 Recuado' },
+  { file: 'planta-piso-3-traseiras.png', label: 'Piso 3 Traseiras' },
+  { file: 'planta-cobertura.png',        label: 'Cobertura' },
 ];
 
 // --- Fogos: piso, tipologia, área, preço, estado ------------------------
@@ -663,22 +760,23 @@ const PLANTAS = [
 // estado: 'disponivel' | 'reservado' | 'vendido'
 // preco: null quando o valor não está disponível (fogos já vendidos sem preço divulgado)
 // terraco: área de terraço em m², ou null quando não tem
+// churrasqueira: true/false — marque manualmente fração a fração
 // garagem incluída em todos os fogos
 const UNITS = [
-  {id:'Esq. Trás',    piso:0, tipologia:'T1',   area:67,    terraco:null, preco:320000, estado:'disponivel'},
-  {id:'Dt.º Trás',    piso:0, tipologia:'T0',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
-  {id:'Esq. Frente',  piso:0, tipologia:'T0',   area:35,    terraco:null, preco:185000, estado:'reservado'},
-  {id:'Dt.º Frente',  piso:0, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
-  {id:'Esq. Trás',    piso:1, tipologia:'T1',   area:67,    terraco:null, preco:295000, estado:'disponivel'},
-  {id:'Dt.º Trás',    piso:1, tipologia:'T1',   area:53,    terraco:null, preco:260000, estado:'disponivel'},
-  {id:'Esq. Frente',  piso:1, tipologia:'T0',   area:43,    terraco:null, preco:230000, estado:'disponivel'},
-  {id:'Dt.º Frente',  piso:1, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel'},
-  {id:'Esq. Trás',    piso:2, tipologia:'T1',   area:64.5,  terraco:null, preco:null,   estado:'vendido'},
-  {id:'Dt.º Trás',    piso:2, tipologia:'T1',   area:53,    terraco:null, preco:null,   estado:'vendido'},
-  {id:'Esq. Frente',  piso:2, tipologia:'T0',   area:38,    terraco:null, preco:null,   estado:'vendido'},
-  {id:'Dt.º Frente',  piso:2, tipologia:'T0',   area:37,    terraco:null, preco:null,   estado:'vendido'},
-  {id:'Esquerdo',     piso:3, tipologia:'T1+1', area:70,    terraco:30,   preco:null,   estado:'vendido'},
-  {id:'Direito',      piso:3, tipologia:'T1+1', area:52,    terraco:30,   preco:395000, estado:'disponivel'},
+  {id:'Esq. Trás',    piso:0, tipologia:'T1',   area:67,    terraco:null, preco:320000, estado:'disponivel', churrasqueira:true},
+  {id:'Dir Trás',    piso:0, tipologia:'T0',   area:53,    terraco:null, preco:260000, estado:'disponivel', churrasqueira:true},
+  {id:'Esq. Frente',  piso:0, tipologia:'T0',   area:35,    terraco:null, preco:185000, estado:'reservado', churrasqueira:false},
+  {id:'Dir Frente',  piso:0, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel', churrasqueira:false},
+  {id:'Esq. Trás',    piso:1, tipologia:'T1',   area:67,    terraco:null, preco:295000, estado:'disponivel', churrasqueira:true},
+  {id:'Dir Trás',    piso:1, tipologia:'T1',   area:53,    terraco:null, preco:260000, estado:'disponivel', churrasqueira:true},
+  {id:'Esq. Frente',  piso:1, tipologia:'T0',   area:43,    terraco:null, preco:230000, estado:'disponivel', churrasqueira:false},
+  {id:'Dir Frente',  piso:1, tipologia:'T1',   area:52,    terraco:null, preco:260000, estado:'disponivel', churrasqueira:false},
+  {id:'Esq. Trás',    piso:2, tipologia:'T1',   area:64.5,  terraco:null, preco:null,   estado:'vendido', churrasqueira:true},
+  {id:'Dir Trás',    piso:2, tipologia:'T1',   area:53,    terraco:null, preco:null,   estado:'vendido', churrasqueira:true},
+  {id:'Esq. Frente',  piso:2, tipologia:'T0',   area:38,    terraco:null, preco:null,   estado:'vendido', churrasqueira:false},
+  {id:'Dir Frente',  piso:2, tipologia:'T0',   area:37,    terraco:null, preco:null,   estado:'vendido', churrasqueira:false},
+  {id:'Esquerdo',     piso:3, tipologia:'T1+1', area:70,    terraco:30,   preco:null,   estado:'vendido', churrasqueira:true},
+  {id:'Direito',      piso:3, tipologia:'T1+1', area:52,    terraco:30,   preco:395000, estado:'disponivel', churrasqueira:true},
 ];
 
 /* =====================================================================
@@ -720,14 +818,15 @@ const catLabels = {fachada:'Fachada', interior:'Interior', comum:'Área comum'};
 
 function renderGallery(filter){
   galGrid.innerHTML = '';
-  GALLERY.filter(g => filter === 'todos' || g.category === filter).forEach((g, i) => {
+  const list = GALLERY.filter(g => filter === 'todos' || g.category === filter);
+  list.forEach((g, i) => {
     const item = document.createElement('div');
     item.className = 'gal-item';
     item.innerHTML = `<span class="tag">${catLabels[g.category]}</span>
       <img src="images/${g.file}" alt="${g.label}" loading="lazy">`;
     const img = item.querySelector('img');
     img.onerror = () => { img.replaceWith(phBlock(g.label, g.file, '1200×900')); };
-    item.addEventListener('click', () => openLightbox(g));
+    item.addEventListener('click', () => openLightboxAt(list, i));
     galGrid.appendChild(item);
   });
 }
@@ -745,15 +844,15 @@ document.getElementById('galTabs').addEventListener('click', (e) => {
 const plantasGrid = document.getElementById('plantasGrid');
 function renderPlantas(){
   plantasGrid.innerHTML = '';
-  PLANTAS.forEach(p => {
+  const list = PLANTAS.map(p => ({ file: `plantas/${p.file}`, label: p.label }));
+  list.forEach((g, i) => {
     const item = document.createElement('div');
     item.className = 'gal-item';
     item.innerHTML = `<span class="tag">Planta</span>
-      <img src="images/plantas/${p.file}" alt="${p.label}" loading="lazy">`;
+      <img src="images/${g.file}" alt="${g.label}" loading="lazy">`;
     const img = item.querySelector('img');
-    const g = { file: `plantas/${p.file}`, label: p.label };
-    img.onerror = () => { img.replaceWith(phBlock(p.label, `plantas/${p.file}`, '1600×1200')); };
-    item.addEventListener('click', () => openLightbox(g));
+    img.onerror = () => { img.replaceWith(phBlock(g.label, g.file, '1600×1200')); };
+    item.addEventListener('click', () => openLightboxAt(list, i));
     plantasGrid.appendChild(item);
   });
 }
@@ -763,18 +862,52 @@ renderPlantas();
 const lightbox = document.getElementById('lightbox');
 const lbContent = document.getElementById('lbContent');
 const lbCap = document.getElementById('lbCap');
+const lbPrevBtn = document.getElementById('lbPrev');
+const lbNextBtn = document.getElementById('lbNext');
 
-function openLightbox(g){
+let lbList = [];
+let lbIndex = 0;
+
+function showLightboxImage(){
+  const g = lbList[lbIndex];
   lbContent.innerHTML = `<img src="images/${g.file}" alt="${g.label}">`;
   const img = lbContent.querySelector('img');
   img.onerror = () => { img.replaceWith(phBlock(g.label, g.file, 'imagem em falta')); lbContent.firstChild.classList.add('ph-big'); };
-  lbCap.textContent = g.label;
+  lbCap.textContent = lbList.length > 1 ? `${g.label} — ${lbIndex + 1}/${lbList.length}` : g.label;
+  const showNav = lbList.length > 1;
+  lbPrevBtn.style.display = showNav ? 'flex' : 'none';
+  lbNextBtn.style.display = showNav ? 'flex' : 'none';
+}
+function openLightboxAt(list, index){
+  lbList = list;
+  lbIndex = index;
+  showLightboxImage();
   lightbox.classList.add('open');
 }
+function lbNext(){ lbIndex = (lbIndex + 1) % lbList.length; showLightboxImage(); }
+function lbPrev(){ lbIndex = (lbIndex - 1 + lbList.length) % lbList.length; showLightboxImage(); }
 function closeLightbox(){ lightbox.classList.remove('open'); lbContent.innerHTML=''; }
+
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
+lbNextBtn.addEventListener('click', (e) => { e.stopPropagation(); lbNext(); });
+lbPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); lbPrev(); });
 lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowRight') lbNext();
+  if(e.key === 'ArrowLeft') lbPrev();
+});
+
+// swipe left/right on touch devices
+let lbTouchStartX = null;
+lightbox.addEventListener('touchstart', (e) => { lbTouchStartX = e.changedTouches[0].clientX; }, { passive: true });
+lightbox.addEventListener('touchend', (e) => {
+  if(lbTouchStartX === null) return;
+  const dx = e.changedTouches[0].clientX - lbTouchStartX;
+  if(Math.abs(dx) > 40){ dx < 0 ? lbNext() : lbPrev(); }
+  lbTouchStartX = null;
+}, { passive: true });
 
 // --- Mobile nav --------------------------------------------------------------
 const burger = document.getElementById('burger');
@@ -785,7 +918,7 @@ burger.addEventListener('click', () => {
 });
 navLinks.addEventListener('click', (e) => { if(e.target.tagName === 'A') navLinks.classList.remove('open'); });
 
-// --- Tabela de fogos --------------------------------------------------------
+// --- Tabela de fracões --------------------------------------------------------
 const fSearch = document.getElementById('fSearch');
 const fPiso = document.getElementById('fPiso');
 const fTipo = document.getElementById('fTipo');
@@ -840,14 +973,17 @@ function renderTable(){
     const tr = document.createElement('tr');
     const pisoTxt = u.piso === 0 ? 'R/C' : (pisoLabel[u.piso] || u.piso);
     const precoTxt = u.preco ? currency.format(u.preco) : '—';
-    const terracoTxt = u.terraco ? u.terraco : '—';
+    const temTerraco = !!u.terraco;
+    const terracoTxt = temTerraco ? u.terraco : '—';
+    const churrasqueiraTxt = u.churrasqueira ? 'Sim' : 'Não';
     tr.innerHTML = `
       <td data-label="Piso">${pisoTxt}</td>
       <td data-label="Fração">${u.id}</td>
       <td data-label="Tipologia">${u.tipologia}</td>
       <td data-label="Garagem">Sim</td>
+      <td data-label="Churrasqueira" class="${u.churrasqueira ? 'has-bbq' : ''}">${churrasqueiraTxt}</td>
       <td data-label="Área (m²)">${u.area}</td>
-      <td data-label="Área Terraço (m²)">${terracoTxt}</td>
+      <td data-label="Área Terraço (m²)"${temTerraco ? '' : ' data-empty="true"'}>${terracoTxt}</td>
       <td data-label="Preço">${precoTxt}</td>
       <td data-label="Estado"><span class="status-pill ${u.estado}"><i class="dot ${u.estado}"></i>${statusLabel[u.estado]}</span></td>
     `;
