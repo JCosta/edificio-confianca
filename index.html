@@ -737,6 +737,30 @@
 </div>
 
 <script>
+// Video lightbox — corre primeiro, independente do resto da página
+(function(){
+  const videoLightbox = document.getElementById('videoLightbox');
+  const videoFrame = document.getElementById('videoFrame');
+  const openBtn = document.getElementById('openVideoBtn');
+  const closeBtn = document.getElementById('videoClose');
+  if(!videoLightbox || !videoFrame || !openBtn || !closeBtn) return;
+  const VIDEO_SRC = 'https://www.canva.com/design/DAHXnMBmoDs/hJ8bgWErmDzISlQ_bLfoAg/watch?embed';
+  function openVideo(){
+    videoFrame.src = VIDEO_SRC;
+    videoLightbox.classList.add('open');
+  }
+  function closeVideo(){
+    videoLightbox.classList.remove('open');
+    videoFrame.src = ''; // para o vídeo quando se fecha
+  }
+  openBtn.addEventListener('click', openVideo);
+  closeBtn.addEventListener('click', closeVideo);
+  videoLightbox.addEventListener('click', (e) => { if(e.target === videoLightbox) closeVideo(); });
+  document.addEventListener('keydown', (e) => {
+    if(videoLightbox.classList.contains('open') && e.key === 'Escape') closeVideo();
+  });
+})();
+
 /* =====================================================================
    DADOS DO EMPREENDIMENTO — edite aqui
    ===================================================================== */
@@ -925,25 +949,6 @@ document.addEventListener('keydown', (e) => {
   if(e.key === 'Escape') closeLightbox();
   if(e.key === 'ArrowRight') lbNext();
   if(e.key === 'ArrowLeft') lbPrev();
-});
-
-// Video lightbox
-const videoLightbox = document.getElementById('videoLightbox');
-const videoFrame = document.getElementById('videoFrame');
-const VIDEO_SRC = 'https://www.canva.com/design/DAHXnMBmoDs/hJ8bgWErmDzISlQ_bLfoAg/watch?embed';
-function openVideo(){
-  videoFrame.src = VIDEO_SRC;
-  videoLightbox.classList.add('open');
-}
-function closeVideo(){
-  videoLightbox.classList.remove('open');
-  videoFrame.src = ''; // para o vídeo quando se fecha
-}
-document.getElementById('openVideoBtn').addEventListener('click', openVideo);
-document.getElementById('videoClose').addEventListener('click', closeVideo);
-videoLightbox.addEventListener('click', (e) => { if(e.target === videoLightbox) closeVideo(); });
-document.addEventListener('keydown', (e) => {
-  if(videoLightbox.classList.contains('open') && e.key === 'Escape') closeVideo();
 });
 
 // swipe left/right on touch devices
